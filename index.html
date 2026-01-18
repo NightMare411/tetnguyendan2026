@@ -5,6 +5,10 @@
 <title>Tết Nguyên Đán 2026 – Văn hóa Việt Nam</title>
 
 <style>
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -12,51 +16,66 @@ body {
     color: #4b1d0f;
 }
 
+/* HEADER */
 header {
     background: linear-gradient(to right, #b91c1c, #f59e0b);
     color: white;
     text-align: center;
-    padding: 60px 20px;
+    padding: 50px 20px;
 }
 
-header h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
-}
-
-header p {
-    font-size: 18px;
-}
-
-.container {
-    max-width: 1100px;
+/* LAYOUT */
+.main {
+    display: flex;
+    max-width: 1400px;
     margin: auto;
-    padding: 30px;
+    padding: 20px;
+    gap: 20px;
 }
 
-.section {
+/* MENU TRÁI */
+.sidebar {
+    width: 25%;
     background: white;
-    border-radius: 18px;
-    margin-bottom: 30px;
-    box-shadow: 0 8px 22px rgba(0,0,0,0.15);
-    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    padding: 15px;
 }
 
-.section button {
+.sidebar button {
     width: 100%;
-    padding: 22px;
-    font-size: 22px;
+    padding: 16px;
+    margin-bottom: 12px;
+    font-size: 16px;
     border: none;
+    border-radius: 12px;
     cursor: pointer;
-    text-align: left;
     background: linear-gradient(to right, #dc2626, #f59e0b);
     color: white;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.sidebar button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* NỘI DUNG PHẢI */
+.content-area {
+    width: 75%;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    padding: 30px;
 }
 
 .content {
     display: none;
-    padding: 30px;
     animation: fade 0.4s ease;
+}
+
+.content.active {
+    display: block;
 }
 
 @keyframes fade {
@@ -77,14 +96,33 @@ header p {
     line-height: 1.9;
     margin-bottom: 16px;
     text-align: justify;
-    font-size: 16px;
 }
 
+/* VIDEO */
+iframe {
+    width: 100%;
+    height: 400px;
+    border-radius: 14px;
+    margin-top: 20px;
+    border: 4px solid #f59e0b;
+}
+
+/* FOOTER */
 footer {
     text-align: center;
     padding: 20px;
     background-color: #fde68a;
     font-size: 14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .main {
+        flex-direction: column;
+    }
+    .sidebar, .content-area {
+        width: 100%;
+    }
 }
 </style>
 </head>
@@ -96,184 +134,63 @@ footer {
     <p>Xuân Bính Ngọ – Nét đẹp văn hóa truyền thống Việt Nam</p>
 </header>
 
-<div class="container">
+<div class="main">
+
+<!-- MENU BÊN TRÁI -->
+<div class="sidebar">
+    <button onclick="showContent(1)">🌸 Nguồn gốc & ý nghĩa</button>
+    <button onclick="showContent(2)">🧧 Phong tục ngày Tết</button>
+    <button onclick="showContent(3)">🍽️ Ẩm thực ngày Tết</button>
+    <button onclick="showContent(4)">⏳ Tết xưa & Tết nay</button>
+    <button onclick="showContent(5)">🎒 Tết & học sinh</button>
+    <button onclick="showContent(6)">🎶 Âm nhạc ngày Tết</button>
+</div>
+
+<!-- NỘI DUNG BÊN PHẢI -->
+<div class="content-area">
 
 <!-- MỤC 1 -->
-<div class="section">
-<button onclick="toggle(this)">🌸 Tết Nguyên Đán – Nguồn gốc và ý nghĩa</button>
-<div class="content">
-
+<div class="content active" id="c1">
 <img src="images/ad3.jpg">
-
-<p>
-Tết Nguyên Đán là ngày lễ truyền thống quan trọng nhất của người Việt Nam, đánh dấu sự chuyển giao giữa năm cũ và năm mới theo lịch âm. Đây không chỉ là thời điểm bắt đầu một năm mới mà còn là dịp mang ý nghĩa văn hóa, tinh thần và tâm linh sâu sắc. Trải qua hàng nghìn năm lịch sử, Tết đã trở thành biểu tượng không thể thiếu trong đời sống của dân tộc Việt.
-</p>
-
-<p>
-Nguồn gốc của Tết gắn liền với nền văn minh lúa nước. Trong xã hội nông nghiệp xưa, sau một năm lao động vất vả, người dân tổ chức Tết để nghỉ ngơi, tạ ơn trời đất và cầu mong mùa màng bội thu. Từ đó, Tết dần hình thành như một lễ hội tổng hợp, kết hợp giữa tín ngưỡng, phong tục và sinh hoạt cộng đồng.
-</p>
-
-<p>
-Ý nghĩa lớn nhất của Tết Nguyên Đán là sự đoàn viên. Dù đi xa đến đâu, người Việt luôn mong được trở về nhà vào dịp Tết để sum họp cùng gia đình. Những bữa cơm tất niên, khoảnh khắc đón giao thừa bên người thân mang giá trị tinh thần rất lớn, giúp gắn kết các thế hệ trong gia đình.
-</p>
-
-<p>
-Bên cạnh đó, Tết còn mang ý nghĩa tâm linh sâu sắc. Người Việt coi trọng việc thờ cúng tổ tiên trong dịp Tết, xem đây là cách thể hiện lòng biết ơn và đạo lý “uống nước nhớ nguồn”. Các nghi lễ cúng giao thừa, cúng mùng Một đều mang mong ước về bình an và may mắn.
-</p>
-
-<p>
-Ngày nay, dù xã hội có nhiều thay đổi, Tết Nguyên Đán vẫn giữ vai trò quan trọng. Tết giúp con người sống chậm lại, nhìn lại bản thân và hướng đến những điều tốt đẹp hơn trong năm mới.
-</p>
-
-</div>
+<p> Tết Nguyên Đán là ngày lễ truyền thống quan trọng nhất của người Việt Nam, đánh dấu sự chuyển giao giữa năm cũ và năm mới theo lịch âm...</p>
 </div>
 
 <!-- MỤC 2 -->
-<div class="section">
-<button onclick="toggle(this)">🧧 Phong tục và sinh hoạt ngày Tết</button>
-<div class="content">
-
+<div class="content" id="c2">
 <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Banh_chung.jpg">
-
-<p>
-Phong tục ngày Tết phản ánh rõ nét đời sống văn hóa và tinh thần của người Việt Nam. Trước Tết, các gia đình thường dọn dẹp và trang trí nhà cửa để đón năm mới. Hoa đào, hoa mai, mâm ngũ quả và câu đối đỏ là những hình ảnh quen thuộc, mang ý nghĩa may mắn và sung túc.
-</p>
-
-<p>
-Gói bánh chưng, bánh tét là phong tục truyền thống quan trọng. Đây không chỉ là việc chuẩn bị thức ăn mà còn là dịp để các thành viên trong gia đình quây quần, tạo nên không khí ấm áp và gắn kết.
-</p>
-
-<p>
-Đêm giao thừa là thời khắc thiêng liêng nhất. Người Việt thường cúng giao thừa để tiễn năm cũ, đón năm mới và cầu mong những điều tốt đẹp. Sau đó, tục xông đất được thực hiện với niềm tin mang lại may mắn cho gia đình.
-</p>
-
-<p>
-Trong những ngày đầu năm, mọi người đi chúc Tết họ hàng, bạn bè. Phong tục lì xì mang ý nghĩa tinh thần, thể hiện lời chúc sức khỏe, học tập tốt và thành công.
-</p>
-
-<p>
-Dù nhiều phong tục đã thay đổi theo thời gian, nhưng giá trị tốt đẹp của chúng vẫn được gìn giữ và tiếp tục phát huy trong xã hội hiện đại.
-</p>
-
-</div>
+<p> Phong tục ngày Tết phản ánh rõ nét đời sống văn hóa và tinh thần của người Việt Nam...</p>
 </div>
 
 <!-- MỤC 3 -->
-<div class="section">
-<button onclick="toggle(this)">🍽️ Ẩm thực ngày Tết Việt Nam</button>
-<div class="content">
-
+<div class="content" id="c3">
 <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Tet_food_Vietnam.jpg">
-
-<p>
-Ẩm thực ngày Tết là một phần không thể thiếu trong văn hóa Tết Nguyên Đán. Mâm cỗ Tết không chỉ để ăn uống mà còn mang ý nghĩa tâm linh, thể hiện lòng thành kính với tổ tiên.
-</p>
-
-<p>
-Bánh chưng, bánh tét là những món ăn tiêu biểu. Ngoài ra còn có giò chả, thịt kho, canh măng, dưa hành, củ kiệu và các loại mứt Tết. Mỗi món ăn đều mang ý nghĩa riêng, tượng trưng cho sự đủ đầy và sung túc.
-</p>
-
-<p>
-Ẩm thực ngày Tết thể hiện rõ sự khác biệt giữa các vùng miền nhưng vẫn chung một tinh thần hướng về gia đình và truyền thống.
-</p>
-
-<p>
-Ngày nay, dù xuất hiện nhiều món ăn hiện đại, các món ăn truyền thống ngày Tết vẫn được người Việt trân trọng và gìn giữ.
-</p>
-
-</div>
+<p> Ẩm thực ngày Tết là một phần không thể thiếu trong văn hóa Tết Nguyên Đán...</p>
 </div>
 
 <!-- MỤC 4 -->
-<div class="section">
-<button onclick="toggle(this)">⏳ Tết xưa và Tết nay</button>
-<div class="content">
-
+<div class="content" id="c4">
 <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Tet_market.jpg">
-
-<p>
-Tết xưa gắn liền với cuộc sống nông nghiệp, diễn ra chậm rãi và đậm tính cộng đồng. Người dân dành nhiều thời gian chuẩn bị và sum họp bên gia đình.
-</p>
-
-<p>
-Tết nay có nhiều thay đổi do nhịp sống hiện đại và công nghệ phát triển. Tuy nhiên, những giá trị cốt lõi như đoàn viên và hiếu nghĩa vẫn được giữ gìn.
-</p>
-
-<p>
-Sự khác biệt giữa Tết xưa và Tết nay cho thấy sự thích nghi linh hoạt của văn hóa Việt Nam, đồng thời khẳng định giá trị bền vững của Tết Nguyên Đán.
-</p>
-
-</div>
+<p> Tết xưa gắn liền với cuộc sống nông nghiệp, diễn ra chậm rãi và đậm tính cộng đồng...</p>
 </div>
 
-<div class="section">
-<button onclick="toggle(this)">🎒 Tết Nguyên Đán và học sinh Việt Nam</button>
-<div class="content">
-
+<!-- MỤC 5 -->
+<div class="content" id="c5">
 <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Vietnamese_children_Tet.jpg">
-
-<p>
-Đối với học sinh Việt Nam, Tết Nguyên Đán không chỉ là một ngày lễ truyền thống mà còn là khoảng thời gian được mong chờ nhất trong năm. Sau những tháng ngày học tập căng thẳng, Tết mang đến cho học sinh cơ hội nghỉ ngơi, thư giãn và dành thời gian bên gia đình.
-</p>
-
-<p>
-Trong dịp Tết, học sinh thường tham gia vào các hoạt động chuẩn bị cùng gia đình như dọn dẹp nhà cửa, trang trí bàn thờ, gói bánh chưng hoặc đi chợ Tết. Những hoạt động này giúp các em hiểu hơn về phong tục truyền thống và rèn luyện tinh thần trách nhiệm trong gia đình.
-</p>
-
-<p>
-Tết cũng là dịp học sinh được nhận lì xì và những lời chúc tốt đẹp từ người lớn. Đây không chỉ là niềm vui vật chất mà còn là sự động viên tinh thần, khích lệ các em cố gắng học tập và rèn luyện trong năm mới. Nhiều học sinh còn đặt ra mục tiêu học tập cho bản thân, xem Tết như một điểm khởi đầu mới.
-</p>
-
-<p>
-Trong xã hội hiện đại, dù có nhiều hình thức giải trí mới, Tết vẫn giữ vai trò quan trọng trong việc giáo dục học sinh về truyền thống, gia đình và các giá trị văn hóa tốt đẹp của dân tộc Việt Nam.
-</p>
-
+<p> Đối với học sinh Việt Nam, Tết là khoảng thời gian nghỉ ngơi, sum họp và học hỏi truyền thống...</p>
 </div>
-</div>
-<div class="section">
-<button onclick="toggle(this)">🎶 Âm nhạc ngày Tết – Âm thanh của mùa xuân</button>
-<div class="content">
 
+<!-- MỤC 6 -->
+<div class="content" id="c6">
 <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Tet_music_show.jpg">
+<p> Âm nhạc ngày Tết mang lại không khí vui tươi, rộn ràng và kết nối các thế hệ...</p>
 
-<p>
-Âm nhạc ngày Tết là một phần không thể thiếu trong không khí xuân của người Việt Nam.
-Những giai điệu quen thuộc vang lên mỗi dịp Tết đến không chỉ tạo nên sự rộn ràng
-mà còn gợi lên cảm xúc ấm áp, vui tươi và đầy hy vọng cho một năm mới an lành.
-</p>
-
-<p>
-Các ca khúc xuân thường có ca từ giản dị, gần gũi, xoay quanh chủ đề gia đình,
-quê hương, mùa xuân và những lời chúc tốt đẹp. Những bài hát này được phát rộng rãi
-trên truyền hình, radio và các nền tảng trực tuyến, góp phần làm cho không khí Tết
-trở nên sôi động và tràn đầy sức sống.
-</p>
-
-<p>
-Âm nhạc ngày Tết còn gắn liền với các chương trình văn nghệ, lễ hội đầu xuân
-và những buổi sum họp gia đình. Qua âm nhạc, các giá trị văn hóa truyền thống
-được gìn giữ, truyền lại cho thế hệ trẻ một cách tự nhiên và gần gũi.
-</p>
-
-<iframe
-  src="https://music.youtube.com/watch?v=qzNRi_Bc3vs&si=W9qKYoIYdFlUgq4q"
-  frameborder="0"
-  allow="autoplay; encrypted-media"
-  allowfullscreen>
+<iframe 
+src="https://www.youtube.com/embed/1f9QzRZpK5E"
+allowfullscreen>
 </iframe>
 </div>
 
-<p>
-Đối với nhiều người Việt, chỉ cần nghe những giai điệu quen thuộc của mùa xuân
-là đã cảm nhận được Tết đang đến rất gần. Âm nhạc vì thế trở thành cầu nối cảm xúc,
-kết nối các thế hệ trong gia đình và làm cho Tết Nguyên Đán thêm ý nghĩa,
-trọn vẹn và đáng nhớ.
-</p>
-
 </div>
-</div>
-
-
 </div>
 
 <footer>
@@ -281,11 +198,12 @@ trọn vẹn và đáng nhớ.
 </footer>
 
 <script>
-function toggle(btn) {
-    const content = btn.nextElementSibling;
-    content.style.display = content.style.display === "block" ? "none" : "block";
+function showContent(id) {
+    const contents = document.querySelectorAll(".content");
+    contents.forEach(c => c.classList.remove("active"));
+    document.getElementById("c" + id).classList.add("active");
 }
 </script>
 
 </body>
-</html>r
+</html>
