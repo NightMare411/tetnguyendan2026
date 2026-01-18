@@ -5,10 +5,8 @@
 <title>Tết Nguyên Đán 2026 – Văn hóa Việt Nam</title>
 
 <style>
-/* ===== RESET ===== */
 * { box-sizing: border-box; }
 
-/* ===== BODY ===== */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -17,35 +15,31 @@ body {
     overflow-x: hidden;
 }
 
-/* ===== BACKGROUND DECOR ===== */
-.bg-decor span {
+/* ===== RỒNG ===== */
+#dragon {
     position: fixed;
-    font-size: 30px;
-    animation: float 12s linear infinite;
+    width: 260px;
+    height: 140px;
+    background: url("images/dragon.png") no-repeat center/contain;
+    top: 50%;
+    left: 50%;
+    z-index: 9999;
+    pointer-events: none;
+    filter: drop-shadow(0 12px 25px rgba(0,0,0,0.45));
+}
+
+/* ===== NỀN TẾT ===== */
+.bg span {
+    position: fixed;
+    font-size: 28px;
+    animation: fall 12s linear infinite;
     opacity: 0.7;
     pointer-events: none;
 }
 
-@keyframes float {
+@keyframes fall {
     from { transform: translateY(110vh) rotate(0deg); }
-    to { transform: translateY(-10vh) rotate(360deg); }
-}
-
-/* ===== DRAGON ===== */
-.dragon {
-    position: fixed;
-    font-size: 80px;
-    animation: dragonFly 18s linear infinite;
-    z-index: 999;
-    pointer-events: none;
-}
-
-@keyframes dragonFly {
-    0%   { transform: translate(-10%, 20vh) scaleX(1); }
-    25%  { transform: translate(110vw, 10vh) scaleX(1); }
-    50%  { transform: translate(110vw, 60vh) scaleX(-1); }
-    75%  { transform: translate(-10%, 70vh) scaleX(-1); }
-    100% { transform: translate(-10%, 20vh) scaleX(1); }
+    to   { transform: translateY(-10vh) rotate(360deg); }
 }
 
 /* ===== HEADER ===== */
@@ -67,7 +61,7 @@ header h1 { font-size: 36px; }
     gap: 20px;
 }
 
-/* MENU LEFT */
+/* MENU */
 .menu {
     width: 25%;
 }
@@ -85,7 +79,7 @@ header h1 { font-size: 36px; }
     box-shadow: 0 6px 16px rgba(0,0,0,0.2);
 }
 
-/* CONTENT RIGHT */
+/* CONTENT */
 .content-area {
     width: 75%;
     background: white;
@@ -103,7 +97,7 @@ header h1 { font-size: 36px; }
 
 @keyframes fade {
     from {opacity: 0; transform: translateY(10px);}
-    to {opacity: 1; transform: translateY(0);}
+    to   {opacity: 1; transform: translateY(0);}
 }
 
 .content img {
@@ -131,26 +125,25 @@ footer {
 <body>
 
 <!-- RỒNG -->
-<div class="dragon">🐉</div>
+<div id="dragon"></div>
 
-<!-- NỀN TẾT -->
-<div class="bg-decor">
-    <span style="left:10%; animation-delay:0s;">🌸</span>
-    <span style="left:25%; animation-delay:2s;">🍊</span>
-    <span style="left:40%; animation-delay:4s;">🧧</span>
-    <span style="left:55%; animation-delay:1s;">🎆</span>
-    <span style="left:70%; animation-delay:3s;">🍉</span>
-    <span style="left:85%; animation-delay:5s;">🏮</span>
+<!-- NỀN -->
+<div class="bg">
+    <span style="left:10%;animation-delay:0s;">🌸</span>
+    <span style="left:25%;animation-delay:2s;">🍊</span>
+    <span style="left:40%;animation-delay:4s;">🧧</span>
+    <span style="left:55%;animation-delay:1s;">🎆</span>
+    <span style="left:70%;animation-delay:3s;">🍉</span>
+    <span style="left:85%;animation-delay:5s;">🏮</span>
 </div>
 
 <header>
 <h1>🎊 TẾT NGUYÊN ĐÁN 2026 🎊</h1>
-<p>Xuân Bính Ngọ – Văn hóa truyền thống Việt Nam</p>
+<p>Xuân Bính Ngọ – Văn hóa Việt Nam</p>
 </header>
 
 <div class="container">
 
-<!-- MENU -->
 <div class="menu">
 <button onclick="show(1)">🌸 Nguồn gốc Tết</button>
 <button onclick="show(2)">🧧 Phong tục</button>
@@ -160,23 +153,23 @@ footer {
 <button onclick="show(6)">🎶 Âm nhạc</button>
 </div>
 
-<!-- CONTENT -->
 <div class="content-area">
 
 <div class="content active" id="c1">
-<p>Tết Nguyên Đán là ngày lễ truyền thống lớn nhất của người Việt Nam...</p>
+<img src="images/ad3.jpg">
+<p>Tết Nguyên Đán là ngày lễ truyền thống quan trọng nhất của người Việt Nam...</p>
 </div>
 
 <div class="content" id="c2">
-<p>Phong tục ngày Tết phản ánh đời sống tinh thần sâu sắc...</p>
+<p>Phong tục ngày Tết phản ánh rõ đời sống tinh thần của dân tộc Việt...</p>
 </div>
 
 <div class="content" id="c3">
-<p>Ẩm thực ngày Tết mang ý nghĩa đoàn viên...</p>
+<p>Ẩm thực ngày Tết mang ý nghĩa đoàn viên và sung túc...</p>
 </div>
 
 <div class="content" id="c4">
-<p>Tết xưa chậm rãi, Tết nay hiện đại...</p>
+<p>Tết xưa gắn liền với nông nghiệp, Tết nay hiện đại hơn...</p>
 </div>
 
 <div class="content" id="c5">
@@ -185,7 +178,6 @@ footer {
 
 <div class="content" id="c6">
 <p>Âm nhạc ngày Tết mang không khí xuân rộn ràng...</p>
-
 <audio controls>
 <source src="music/tet.mp3" type="audio/mpeg">
 </audio>
@@ -199,10 +191,35 @@ footer {
 </footer>
 
 <script>
+/* MENU */
 function show(n) {
     document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
     document.getElementById('c' + n).classList.add('active');
 }
+
+/* RỒNG BAY UỐN LƯỢN MẠNH */
+const dragon = document.getElementById("dragon");
+let angle = 0;
+let speed = 0.02;
+let wave = 160;
+let radiusX = window.innerWidth / 2 - 150;
+
+function flyDragon() {
+    angle += speed;
+
+    const x = window.innerWidth / 2 + radiusX * Math.cos(angle);
+    const y = window.innerHeight / 2 + wave * Math.sin(angle * 2);
+
+    const rotate = Math.sin(angle) * 18;
+    const flip = Math.cos(angle) > 0 ? "scaleX(1)" : "scaleX(-1)";
+
+    dragon.style.transform =
+        `translate(${x}px, ${y}px) rotate(${rotate}deg) ${flip}`;
+
+    requestAnimationFrame(flyDragon);
+}
+
+flyDragon();
 </script>
 
 </body>
