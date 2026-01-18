@@ -5,27 +5,61 @@
 <title>Tết Nguyên Đán 2026 – Văn hóa Việt Nam</title>
 
 <style>
-* {
-    box-sizing: border-box;
-}
+/* ===== RESET ===== */
+* { box-sizing: border-box; }
 
+/* ===== BODY ===== */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: linear-gradient(180deg, #fff7ed, #fde68a);
     color: #4b1d0f;
+    overflow-x: hidden;
 }
 
-/* HEADER */
+/* ===== BACKGROUND DECOR ===== */
+.bg-decor span {
+    position: fixed;
+    font-size: 30px;
+    animation: float 12s linear infinite;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+@keyframes float {
+    from { transform: translateY(110vh) rotate(0deg); }
+    to { transform: translateY(-10vh) rotate(360deg); }
+}
+
+/* ===== DRAGON ===== */
+.dragon {
+    position: fixed;
+    font-size: 80px;
+    animation: dragonFly 18s linear infinite;
+    z-index: 999;
+    pointer-events: none;
+}
+
+@keyframes dragonFly {
+    0%   { transform: translate(-10%, 20vh) scaleX(1); }
+    25%  { transform: translate(110vw, 10vh) scaleX(1); }
+    50%  { transform: translate(110vw, 60vh) scaleX(-1); }
+    75%  { transform: translate(-10%, 70vh) scaleX(-1); }
+    100% { transform: translate(-10%, 20vh) scaleX(1); }
+}
+
+/* ===== HEADER ===== */
 header {
     background: linear-gradient(to right, #b91c1c, #f59e0b);
     color: white;
     text-align: center;
-    padding: 50px 20px;
+    padding: 60px 20px;
 }
 
-/* LAYOUT */
-.main {
+header h1 { font-size: 36px; }
+
+/* ===== LAYOUT ===== */
+.container {
     display: flex;
     max-width: 1400px;
     margin: auto;
@@ -33,40 +67,31 @@ header {
     gap: 20px;
 }
 
-/* MENU TRÁI */
-.sidebar {
+/* MENU LEFT */
+.menu {
     width: 25%;
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-    padding: 15px;
 }
 
-.sidebar button {
+.menu button {
     width: 100%;
     padding: 16px;
     margin-bottom: 12px;
-    font-size: 16px;
+    font-size: 18px;
     border: none;
-    border-radius: 12px;
     cursor: pointer;
+    border-radius: 14px;
     background: linear-gradient(to right, #dc2626, #f59e0b);
     color: white;
-    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
 }
 
-.sidebar button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-/* NỘI DUNG PHẢI */
+/* CONTENT RIGHT */
 .content-area {
     width: 75%;
     background: white;
-    border-radius: 16px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    border-radius: 18px;
     padding: 30px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.15);
 }
 
 .content {
@@ -74,9 +99,7 @@ header {
     animation: fade 0.4s ease;
 }
 
-.content.active {
-    display: block;
-}
+.content.active { display: block; }
 
 @keyframes fade {
     from {opacity: 0; transform: translateY(10px);}
@@ -87,107 +110,85 @@ header {
     width: 100%;
     max-width: 900px;
     display: block;
-    margin: 25px auto;
+    margin: 20px auto;
     border-radius: 16px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
 }
 
 .content p {
     line-height: 1.9;
-    margin-bottom: 16px;
     text-align: justify;
 }
 
-/* VIDEO */
-iframe {
-    width: 100%;
-    height: 400px;
-    border-radius: 14px;
-    margin-top: 20px;
-    border: 4px solid #f59e0b;
-}
-
-/* FOOTER */
+/* ===== FOOTER ===== */
 footer {
     text-align: center;
     padding: 20px;
     background-color: #fde68a;
-    font-size: 14px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-    .main {
-        flex-direction: column;
-    }
-    .sidebar, .content-area {
-        width: 100%;
-    }
 }
 </style>
 </head>
 
 <body>
 
+<!-- RỒNG -->
+<div class="dragon">🐉</div>
+
+<!-- NỀN TẾT -->
+<div class="bg-decor">
+    <span style="left:10%; animation-delay:0s;">🌸</span>
+    <span style="left:25%; animation-delay:2s;">🍊</span>
+    <span style="left:40%; animation-delay:4s;">🧧</span>
+    <span style="left:55%; animation-delay:1s;">🎆</span>
+    <span style="left:70%; animation-delay:3s;">🍉</span>
+    <span style="left:85%; animation-delay:5s;">🏮</span>
+</div>
+
 <header>
-    <h1>🎊 TẾT NGUYÊN ĐÁN 2026 🎊</h1>
-    <p>Xuân Bính Ngọ – Nét đẹp văn hóa truyền thống Việt Nam</p>
+<h1>🎊 TẾT NGUYÊN ĐÁN 2026 🎊</h1>
+<p>Xuân Bính Ngọ – Văn hóa truyền thống Việt Nam</p>
 </header>
 
-<div class="main">
+<div class="container">
 
-<!-- MENU BÊN TRÁI -->
-<div class="sidebar">
-    <button onclick="showContent(1)">🌸 Nguồn gốc & ý nghĩa</button>
-    <button onclick="showContent(2)">🧧 Phong tục ngày Tết</button>
-    <button onclick="showContent(3)">🍽️ Ẩm thực ngày Tết</button>
-    <button onclick="showContent(4)">⏳ Tết xưa & Tết nay</button>
-    <button onclick="showContent(5)">🎒 Tết & học sinh</button>
-    <button onclick="showContent(6)">🎶 Âm nhạc ngày Tết</button>
+<!-- MENU -->
+<div class="menu">
+<button onclick="show(1)">🌸 Nguồn gốc Tết</button>
+<button onclick="show(2)">🧧 Phong tục</button>
+<button onclick="show(3)">🍽️ Ẩm thực</button>
+<button onclick="show(4)">⏳ Tết xưa – nay</button>
+<button onclick="show(5)">🎒 Học sinh</button>
+<button onclick="show(6)">🎶 Âm nhạc</button>
 </div>
 
-<!-- NỘI DUNG BÊN PHẢI -->
+<!-- CONTENT -->
 <div class="content-area">
 
-<!-- MỤC 1 -->
 <div class="content active" id="c1">
-<img src="images/ad3.jpg">
-<p> Tết Nguyên Đán là ngày lễ truyền thống quan trọng nhất của người Việt Nam, đánh dấu sự chuyển giao giữa năm cũ và năm mới theo lịch âm...</p>
+<p>Tết Nguyên Đán là ngày lễ truyền thống lớn nhất của người Việt Nam...</p>
 </div>
 
-<!-- MỤC 2 -->
 <div class="content" id="c2">
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Banh_chung.jpg">
-<p> Phong tục ngày Tết phản ánh rõ nét đời sống văn hóa và tinh thần của người Việt Nam...</p>
+<p>Phong tục ngày Tết phản ánh đời sống tinh thần sâu sắc...</p>
 </div>
 
-<!-- MỤC 3 -->
 <div class="content" id="c3">
-<img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Tet_food_Vietnam.jpg">
-<p> Ẩm thực ngày Tết là một phần không thể thiếu trong văn hóa Tết Nguyên Đán...</p>
+<p>Ẩm thực ngày Tết mang ý nghĩa đoàn viên...</p>
 </div>
 
-<!-- MỤC 4 -->
 <div class="content" id="c4">
-<img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Tet_market.jpg">
-<p> Tết xưa gắn liền với cuộc sống nông nghiệp, diễn ra chậm rãi và đậm tính cộng đồng...</p>
+<p>Tết xưa chậm rãi, Tết nay hiện đại...</p>
 </div>
 
-<!-- MỤC 5 -->
 <div class="content" id="c5">
-<img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Vietnamese_children_Tet.jpg">
-<p> Đối với học sinh Việt Nam, Tết là khoảng thời gian nghỉ ngơi, sum họp và học hỏi truyền thống...</p>
+<p>Đối với học sinh, Tết là khoảng thời gian ý nghĩa...</p>
 </div>
 
-<!-- MỤC 6 -->
 <div class="content" id="c6">
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Tet_music_show.jpg">
-<p> Âm nhạc ngày Tết mang lại không khí vui tươi, rộn ràng và kết nối các thế hệ...</p>
+<p>Âm nhạc ngày Tết mang không khí xuân rộn ràng...</p>
 
-<iframe 
-src="https://www.youtube.com/embed/1f9QzRZpK5E"
-allowfullscreen>
-</iframe>
+<audio controls>
+<source src="music/tet.mp3" type="audio/mpeg">
+</audio>
 </div>
 
 </div>
@@ -198,10 +199,9 @@ allowfullscreen>
 </footer>
 
 <script>
-function showContent(id) {
-    const contents = document.querySelectorAll(".content");
-    contents.forEach(c => c.classList.remove("active"));
-    document.getElementById("c" + id).classList.add("active");
+function show(n) {
+    document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+    document.getElementById('c' + n).classList.add('active');
 }
 </script>
 
