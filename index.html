@@ -2,161 +2,148 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>Tết Nguyên Đán 2026 – Việt Nam</title>
+<title>Tết Nguyên Đán 2026 – Văn hóa Việt Nam</title>
 
 <style>
-/* ===== NỀN TẾT ===== */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(120deg, #b30000, #ffcc66);
-    color: #fff;
-    overflow-x: hidden;
+
+    /* NỀN ẢNH TẾT */
+    background-image: url("images/tet-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    color: #4b1d0f;
 }
 
-/* ===== KHUNG TRANG ===== */
+header {
+    background: rgba(185, 28, 28, 0.85);
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 18px;
+}
+
 .container {
     max-width: 1100px;
     margin: auto;
-    padding: 20px;
+    padding: 30px;
 }
 
-/* ===== TIÊU ĐỀ ===== */
-h1 {
-    text-align: center;
-    font-size: 42px;
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
-}
-
-/* ===== MỤC ===== */
 .section {
-    margin-top: 25px;
+    background: rgba(255, 255, 255, 0.93);
+    border-radius: 18px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.25);
+    overflow: hidden;
 }
 
 .section button {
     width: 100%;
-    padding: 18px;
-    font-size: 20px;
-    background: #ffdd88;
+    padding: 22px;
+    font-size: 22px;
     border: none;
-    border-radius: 12px;
     cursor: pointer;
     text-align: left;
-    font-weight: bold;
-}
-
-.section button:hover {
-    background: #ffe7aa;
+    background: linear-gradient(to right, #dc2626, #f59e0b);
+    color: white;
 }
 
 .content {
     display: none;
-    background: rgba(255,255,255,0.15);
-    padding: 20px;
-    margin-top: 10px;
-    border-radius: 12px;
+    padding: 30px;
+    animation: fade 0.4s ease;
+}
+
+@keyframes fade {
+    from {opacity: 0; transform: translateY(10px);}
+    to {opacity: 1; transform: translateY(0);}
 }
 
 .content img {
     width: 100%;
-    max-height: 350px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin: 15px 0;
+    max-width: 900px;
+    display: block;
+    margin: 25px auto;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
 }
 
-/* ===== RỒNG BAY ===== */
-#dragon {
-    position: fixed;
-    width: 260px;
-    height: 140px;
-    background: url("images/dragon.png") no-repeat center/contain;
-    top: 50%;
-    left: 50%;
-    z-index: 9999;
-    pointer-events: none;
-    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.6));
+.content p {
+    line-height: 1.9;
+    margin-bottom: 16px;
+    text-align: justify;
+    font-size: 16px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(253, 230, 138, 0.9);
+    font-size: 14px;
 }
 </style>
 </head>
 
 <body>
 
-<div id="dragon"></div>
+<header>
+    <h1>🎊 TẾT NGUYÊN ĐÁN 2026 🎊</h1>
+    <p>Xuân Bính Ngọ – Nét đẹp văn hóa truyền thống Việt Nam</p>
+</header>
 
 <div class="container">
-<h1>🎉 TẾT NGUYÊN ĐÁN 2026 – VIỆT NAM 🎉</h1>
 
-<!-- MỤC 1 -->
 <div class="section">
-<button onclick="toggle(this)">🏮 Ý nghĩa Tết Nguyên Đán</button>
+<button onclick="toggle(this)">🌸 Tết Nguyên Đán – Nguồn gốc và ý nghĩa</button>
 <div class="content">
 <img src="images/ad3.jpg">
-<p>
-Tết Nguyên Đán là dịp lễ quan trọng nhất trong năm của người Việt Nam. Đây là thời điểm
-đánh dấu sự khởi đầu của một năm mới theo âm lịch, mang ý nghĩa đoàn viên, sum họp
-và hy vọng vào những điều tốt đẹp. Trong dịp Tết, mọi người thường trở về quê hương,
-quây quần bên gia đình và tưởng nhớ tổ tiên.
-</p>
+<p>Tết Nguyên Đán là ngày lễ truyền thống quan trọng nhất của người Việt Nam...</p>
+<p>Tết mang ý nghĩa đoàn viên, tâm linh và khởi đầu mới cho mỗi gia đình.</p>
 </div>
 </div>
 
-<!-- MỤC 2 -->
 <div class="section">
-<button onclick="toggle(this)">🧧 Phong tục ngày Tết</button>
+<button onclick="toggle(this)">🎶 Âm nhạc ngày Tết</button>
 <div class="content">
-<img src="images/trai-cay.jpg">
-<p>
-Phong tục ngày Tết rất đa dạng và phong phú như dọn dẹp nhà cửa, cúng ông Công ông Táo,
-chúc Tết đầu năm, lì xì lấy may và đi lễ chùa. Những phong tục này thể hiện mong ước
-về sức khỏe, tài lộc và bình an cho cả gia đình.
-</p>
-</div>
-</div>
+<p>Âm nhạc ngày Tết mang lại không khí rộn ràng, ấm áp và gắn kết các thế hệ.</p>
 
-<!-- MỤC 3 -->
-<div class="section">
-<button onclick="toggle(this)">🍽️ Ẩm thực ngày Tết</button>
-<div class="content">
-<img src="images/hoa.png">
-<p>
-Ẩm thực ngày Tết mang đậm bản sắc văn hóa dân tộc. Các món ăn như bánh chưng,
-bánh tét, thịt kho trứng, dưa hành không chỉ ngon miệng mà còn mang ý nghĩa
-về sự đủ đầy, no ấm và hạnh phúc.
-</p>
+<!-- VIDEO YOUTUBE KHÔNG BẢN QUYỀN -->
+<iframe
+    width="100%"
+    height="315"
+    src="https://www.youtube.com/embed/1G4isv_Fylg"
+    title="Nhạc Tết"
+    frameborder="0"
+    allowfullscreen
+    style="border-radius:15px; box-shadow:0 6px 18px rgba(0,0,0,0.3);">
+</iframe>
+
 </div>
 </div>
 
 </div>
 
-<!-- SCRIPT -->
+<footer>
+© 2026 – Website Tết Nguyên Đán Việt Nam
+</footer>
+
 <script>
 function toggle(btn) {
     const content = btn.nextElementSibling;
     content.style.display = content.style.display === "block" ? "none" : "block";
 }
-
-/* ===== RỒNG BAY UỐN LƯỢN MẠNH ===== */
-const dragon = document.getElementById("dragon");
-let angle = 0;
-let speed = 0.025;
-let wave = 180;
-let radiusX = window.innerWidth / 2 - 150;
-
-function flyDragon() {
-    angle += speed;
-
-    const x = window.innerWidth / 2 + radiusX * Math.cos(angle);
-    const y = window.innerHeight / 2 + wave * Math.sin(angle * 2);
-    const rotate = Math.sin(angle) * 20;
-    const flip = Math.cos(angle) > 0 ? "scaleX(1)" : "scaleX(-1)";
-
-    dragon.style.transform =
-        `translate(${x}px, ${y}px) rotate(${rotate}deg) ${flip}`;
-
-    requestAnimationFrame(flyDragon);
-}
-flyDragon();
 </script>
 
 </body>
