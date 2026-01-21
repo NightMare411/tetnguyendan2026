@@ -10,37 +10,25 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:"Segoe UI",sans-serif;
+    font-family:"Segoe UI", sans-serif;
 }
 
 /* VIDEO NỀN */
 #bg-video{
     position:fixed;
-    top:0;left:0;
+    top:0;
+    left:0;
     width:100%;
     height:100%;
     object-fit:cover;
-    z-index:-3;
-}
-.overlay{
-    position:fixed;
-    top:0;left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.5);
     z-index:-2;
 }
 
-/* HOA RƠI */
-.flower{
+.overlay{
     position:fixed;
-    top:-10%;
-    font-size:22px;
-    animation:fall linear infinite;
+    inset:0;
+    background:rgba(0,0,0,0.45);
     z-index:-1;
-}
-@keyframes fall{
-    to{transform:translateY(110vh) rotate(360deg);}
 }
 
 /* MÀN CHÀO */
@@ -52,15 +40,11 @@
     align-items:center;
     color:#fff;
     text-align:center;
-    animation:fadeZoom 2s ease forwards;
-}
-@keyframes fadeZoom{
-    from{opacity:0; transform:scale(0.9);}
-    to{opacity:1; transform:scale(1);}
+    padding:20px;
 }
 
 #welcome h1{
-    font-size:34px;
+    font-size:32px;
     margin-bottom:15px;
 }
 
@@ -70,92 +54,106 @@
     gap:15px;
     margin:20px 0;
 }
+
 .time-box{
-    background:linear-gradient(135deg,#ffd700,#ffb703);
-    color:#9b1c1c;
-    padding:14px 18px;
-    border-radius:14px;
-    min-width:75px;
+    background:rgba(255,215,0,0.95);
+    color:#b30000;
+    padding:12px 16px;
+    border-radius:12px;
+    min-width:70px;
 }
+
 .time-box span{
-    font-size:26px;
+    display:block;
+    font-size:24px;
     font-weight:bold;
 }
-.time-box small{font-size:13px;}
+
+.time-box small{
+    font-size:13px;
+}
 
 /* NÚT */
 .btn{
-    background:linear-gradient(135deg,#ffcc00,#ff3b3b);
+    background:linear-gradient(135deg,#ffd700,#ff3b3b);
     border:none;
-    padding:16px 40px;
+    padding:16px 38px;
     font-size:20px;
     border-radius:50px;
     color:#fff;
     cursor:pointer;
-    margin-top:10px;
-    animation:pulse 1.5s infinite;
-}
-@keyframes pulse{
-    50%{transform:scale(1.08);}
+    animation:pulse 1.6s infinite;
 }
 
-/* NỘI DUNG */
+@keyframes pulse{
+    0%{transform:scale(1)}
+    50%{transform:scale(1.05)}
+    100%{transform:scale(1)}
+}
+
+/* TRANG 2 */
 #content{
     display:none;
     padding:50px 15px;
+    animation:fadeIn 1.2s ease forwards;
 }
-.section{
-    max-width:900px;
-    margin:30px auto;
-    background:rgba(255,255,255,0.95);
-    border-radius:18px;
-    padding:30px;
-    border:4px solid #d62828;
-    box-shadow:0 15px 35px rgba(0,0,0,0.3);
-    animation:slideUp 1.2s ease forwards;
-}
-@keyframes slideUp{
-    from{opacity:0; transform:translateY(60px);}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(40px);}
     to{opacity:1; transform:translateY(0);}
+}
+
+/* GRID */
+.content-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+    max-width:1100px;
+    margin:auto;
+}
+
+.section{
+    background:rgba(255,255,255,0.95);
+    border-radius:15px;
+    padding:25px;
+    border:4px solid #d62828;
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+    transition:transform 0.3s, box-shadow 0.3s;
+}
+
+.section:hover{
+    transform:translateY(-6px);
+    box-shadow:0 18px 35px rgba(0,0,0,0.35);
 }
 
 .section h2{
     color:#d62828;
     text-align:center;
-    margin-bottom:15px;
+    margin-bottom:12px;
 }
+
 .section p{
-    line-height:1.8;
     color:#333;
+    line-height:1.7;
+    text-align:justify;
 }
 
 footer{
     text-align:center;
     color:#fff;
-    margin:30px 0;
+    margin:40px 0;
+    font-size:14px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- VIDEO -->
+<!-- VIDEO NỀN -->
 <video id="bg-video" autoplay muted loop>
     <source src="tet-bg.mp4" type="video/mp4">
 </video>
 <div class="overlay"></div>
-
-<!-- HOA RƠI -->
-<script>
-for(let i=0;i<20;i++){
-    const f=document.createElement("div");
-    f.className="flower";
-    f.innerHTML="🌸";
-    f.style.left=Math.random()*100+"vw";
-    f.style.animationDuration=5+Math.random()*5+"s";
-    document.body.appendChild(f);
-}
-</script>
 
 <!-- MÀN CHÀO -->
 <div id="welcome">
@@ -171,30 +169,58 @@ for(let i=0;i<20;i++){
     <button class="btn" onclick="enterSite()">🎉 Chúc Mừng Năm Mới 🎉</button>
 </div>
 
-<!-- NỘI DUNG -->
+<!-- TRANG 2 -->
 <div id="content">
-    <div class="section">
-        <h2>🎆 Tết Nguyên Đán 2026</h2>
-        <p>
-            Tết là thời khắc thiêng liêng đánh dấu sự khởi đầu của một năm mới,
-            mang theo niềm vui, hy vọng và sự sum vầy của gia đình Việt Nam.
-        </p>
-    </div>
+    <div class="content-grid">
 
-    <div class="section">
-        <h2>🧧 Phong Tục Truyền Thống</h2>
-        <p>
-            Dọn nhà, cúng tổ tiên, chúc Tết và mừng tuổi đầu năm là những nét đẹp
-            văn hóa được gìn giữ qua nhiều thế hệ.
-        </p>
-    </div>
+        <div class="section">
+            <h2>🎆 Ý Nghĩa Tết Nguyên Đán</h2>
+            <p>
+                Tết Nguyên Đán là dịp lễ quan trọng nhất của người Việt, đánh dấu sự kết thúc
+                năm cũ và mở ra khởi đầu mới với nhiều hy vọng, may mắn và bình an.
+            </p>
+        </div>
 
-    <div class="section">
-        <h2>🍽️ Ẩm Thực Ngày Xuân</h2>
-        <p>
-            Bánh chưng, bánh tét và mứt Tết mang hương vị đoàn viên,
-            gắn kết các thành viên trong gia đình.
-        </p>
+        <div class="section">
+            <h2>🧧 Phong Tục Ngày Tết</h2>
+            <p>
+                Dọn dẹp nhà cửa, cúng tổ tiên, chúc Tết và mừng tuổi đầu năm
+                là những phong tục mang đậm bản sắc văn hóa dân tộc.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>🍽️ Ẩm Thực Ngày Xuân</h2>
+            <p>
+                Bánh chưng, bánh tét, mứt Tết và các món truyền thống
+                thể hiện sự sum họp, đủ đầy và gắn kết gia đình.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>🎶 Âm Nhạc Ngày Tết</h2>
+            <p>
+                Những giai điệu xuân quen thuộc mang lại cảm giác rộn ràng,
+                ấm áp và khơi gợi ký ức gia đình.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>👨‍👩‍👧‍👦 Tết & Gia Đình</h2>
+            <p>
+                Tết là thời điểm sum họp quý giá, nơi mọi người cùng nhau
+                chia sẻ niềm vui và những khoảnh khắc đáng nhớ.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>🌱 Ước Nguyện Năm Mới</h2>
+            <p>
+                Mỗi người đều gửi gắm những ước mong tốt đẹp cho năm mới:
+                sức khỏe, thành công và hạnh phúc.
+            </p>
+        </div>
+
     </div>
 </div>
 
@@ -208,19 +234,18 @@ function enterSite(){
     document.getElementById("content").style.display="block";
 }
 
-/* TỰ ĐỘNG VÀO SAU 5 GIÂY */
-setTimeout(enterSite,5000);
+/* ĐẾM NGƯỢC TẾT 2026 (17/02/2026) */
+const tetDate = new Date("2026-02-17T00:00:00").getTime();
 
-/* ĐẾM NGƯỢC */
-const tetDate=new Date("2026-02-17T00:00:00").getTime();
 setInterval(()=>{
-    const now=new Date().getTime();
-    const d=tetDate-now;
-    if(d<0) return;
-    days.innerText=Math.floor(d/(1000*60*60*24));
-    hours.innerText=Math.floor((d%(1000*60*60*24))/(1000*60*60));
-    minutes.innerText=Math.floor((d%(1000*60*60))/(1000*60));
-    seconds.innerText=Math.floor((d%(1000*60))/1000);
+    const now = new Date().getTime();
+    const d = tetDate - now;
+    if(d < 0) return;
+
+    days.innerText = Math.floor(d / (1000*60*60*24));
+    hours.innerText = Math.floor((d % (1000*60*60*24)) / (1000*60*60));
+    minutes.innerText = Math.floor((d % (1000*60*60)) / (1000*60));
+    seconds.innerText = Math.floor((d % (1000*60)) / 1000);
 },1000);
 </script>
 
