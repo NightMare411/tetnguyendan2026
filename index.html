@@ -6,196 +6,214 @@
 <title>Tết Nguyên Đán 2026</title>
 
 <style>
-/* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
     font-family: "Segoe UI", sans-serif;
 }
 
 /* VIDEO NỀN */
-#bg-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -2;
+#bg-video{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-2;
 }
 
-/* LỚP PHỦ */
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.45);
-    z-index: -1;
+.overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.45);
+    z-index:-1;
 }
 
-/* MÀN HÌNH LÌ XÌ */
-#welcome {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    text-align: center;
+/* MÀN CHÀO */
+#welcome{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+    text-align:center;
+    padding:20px;
 }
 
-#welcome h1 {
-    font-size: 40px;
-    margin-bottom: 20px;
+#welcome h1{
+    font-size:32px;
+    margin-bottom:15px;
 }
 
-.lixi-btn {
-    background: linear-gradient(135deg, #ffd700, #ff3b3b);
-    border: none;
-    padding: 18px 40px;
-    font-size: 22px;
-    border-radius: 50px;
-    color: #fff;
-    cursor: pointer;
-    animation: shake 1.5s infinite;
+/* ĐẾM NGƯỢC */
+#countdown{
+    display:flex;
+    gap:15px;
+    margin:20px 0;
 }
 
-/* RUNG NHẸ */
-@keyframes shake {
-    0% { transform: rotate(0deg); }
-    25% { transform: rotate(2deg); }
-    50% { transform: rotate(0deg); }
-    75% { transform: rotate(-2deg); }
-    100% { transform: rotate(0deg); }
+.time-box{
+    background:rgba(255,215,0,0.95);
+    color:#b30000;
+    padding:12px 16px;
+    border-radius:12px;
+    min-width:70px;
 }
 
-/* NỘI DUNG CHÍNH */
-#content {
-    display: none;
-    padding: 40px 15px;
-    animation: fadeIn 1.5s ease forwards;
+.time-box span{
+    display:block;
+    font-size:24px;
+    font-weight:bold;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.time-box small{
+    font-size:13px;
 }
 
-/* KHUNG MỤC */
-.section {
-    max-width: 900px;
-    margin: 25px auto;
-    background: rgba(255,255,255,0.92);
-    border-radius: 15px;
-    padding: 25px;
-    border: 4px solid #d62828;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+/* NÚT */
+.btn{
+    background:linear-gradient(135deg,#ffd700,#ff3b3b);
+    border:none;
+    padding:16px 38px;
+    font-size:20px;
+    border-radius:50px;
+    color:#fff;
+    cursor:pointer;
+    animation:pulse 1.6s infinite;
 }
 
-.section h2 {
-    color: #d62828;
-    margin-bottom: 15px;
-    text-align: center;
+@keyframes pulse{
+    0%{transform:scale(1)}
+    50%{transform:scale(1.05)}
+    100%{transform:scale(1)}
 }
 
-.section p {
-    line-height: 1.7;
-    margin-bottom: 10px;
-    color: #333;
+/* NỘI DUNG */
+#content{
+    display:none;
+    padding:40px 15px;
+    animation:fadeIn 1.5s ease forwards;
 }
 
-/* FOOTER */
-footer {
-    text-align: center;
-    color: #fff;
-    margin: 30px 0;
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(40px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+.section{
+    max-width:900px;
+    margin:25px auto;
+    background:rgba(255,255,255,0.92);
+    border-radius:15px;
+    padding:25px;
+    border:4px solid #d62828;
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+}
+
+.section h2{
+    color:#d62828;
+    margin-bottom:15px;
+    text-align:center;
+}
+
+.section p{
+    line-height:1.7;
+    color:#333;
+}
+
+footer{
+    text-align:center;
+    color:#fff;
+    margin:30px 0;
 }
 </style>
 </head>
 
 <body>
 
-<!-- VIDEO NỀN -->
+<!-- VIDEO -->
 <video id="bg-video" autoplay muted loop>
     <source src="tet-bg.mp4" type="video/mp4">
 </video>
 <div class="overlay"></div>
 
-<!-- MÀN HÌNH LÌ XÌ -->
+<!-- MÀN CHÀO -->
 <div id="welcome">
-    <h1>🎉 Chào Mừng Tết Nguyên Đán 2026 🎉</h1>
-    <button class="lixi-btn" onclick="enterSite()">🧧 Nhận Lì Xì 🧧</button>
+    <h1>🎊 Chào Mừng Tết Nguyên Đán 2026 🎊</h1>
+
+    <div id="countdown">
+        <div class="time-box"><span id="days">0</span><small>Ngày</small></div>
+        <div class="time-box"><span id="hours">0</span><small>Giờ</small></div>
+        <div class="time-box"><span id="minutes">0</span><small>Phút</small></div>
+        <div class="time-box"><span id="seconds">0</span><small>Giây</small></div>
+    </div>
+
+    <button class="btn" onclick="enterSite()">🎉 Chúc Mừng Năm Mới 🎉</button>
 </div>
 
 <!-- NỘI DUNG -->
 <div id="content">
 
     <div class="section">
-        <h2>1. Tết Nguyên Đán 2026</h2>
+        <h2>Tết Nguyên Đán 2026</h2>
         <p>
-            Tết Nguyên Đán là dịp lễ truyền thống quan trọng nhất của người Việt Nam.
-            Đây là thời điểm đánh dấu sự khởi đầu của một năm mới, mang theo hy vọng,
-            may mắn và những điều tốt đẹp. Tết 2026 không chỉ là dịp sum họp gia đình
-            mà còn là lúc con người nhìn lại một năm đã qua và hướng tới tương lai.
+            Tết Nguyên Đán là dịp lễ quan trọng nhất của người Việt Nam, đánh dấu sự khởi
+            đầu của một năm mới, mang theo hy vọng, may mắn và bình an cho mọi gia đình.
         </p>
     </div>
 
     <div class="section">
-        <h2>2. Phong Tục Ngày Tết</h2>
+        <h2>Phong Tục Ngày Tết</h2>
         <p>
-            Vào dịp Tết, người Việt thường dọn dẹp nhà cửa, trang trí hoa đào, hoa mai
-            và chuẩn bị mâm cỗ cúng tổ tiên. Phong tục chúc Tết, mừng tuổi bằng lì xì
-            mang ý nghĩa chúc phúc, cầu mong may mắn cho năm mới.
+            Người Việt dọn dẹp nhà cửa, cúng tổ tiên, chúc Tết và mừng tuổi đầu năm.
+            Đây là nét đẹp văn hóa truyền thống được gìn giữ qua nhiều thế hệ.
         </p>
     </div>
 
     <div class="section">
-        <h2>3. Ẩm Thực Ngày Tết</h2>
+        <h2>Ẩm Thực Ngày Xuân</h2>
         <p>
-            Bánh chưng, bánh tét là những món ăn truyền thống không thể thiếu.
-            Ngoài ra còn có thịt kho, dưa hành, mứt Tết – tất cả tạo nên hương vị
-            đặc trưng của ngày xuân Việt Nam.
-        </p>
-    </div>
-
-    <div class="section">
-        <h2>4. Hoạt Động Vui Xuân</h2>
-        <p>
-            Trong những ngày Tết, mọi người thường đi chùa cầu bình an,
-            tham gia lễ hội, du xuân và thăm hỏi người thân. Trẻ em rất háo hức
-            vì được nghỉ học và nhận lì xì đầu năm.
-        </p>
-    </div>
-
-    <div class="section">
-        <h2>5. Âm Nhạc Ngày Tết</h2>
-        <p>
-            Âm nhạc Tết mang không khí vui tươi, rộn ràng, góp phần làm cho
-            ngày xuân thêm ý nghĩa. Những bài hát Tết quen thuộc thường vang
-            lên khắp mọi nơi, từ gia đình đến đường phố.
+            Bánh chưng, bánh tét, mứt Tết và các món ăn truyền thống mang hương vị
+            sum họp, gắn kết gia đình trong những ngày đầu năm.
         </p>
     </div>
 
 </div>
 
 <footer>
-    © 2026 – Web Tết Nguyên Đán | Thực hiện bằng HTML
+    © 2026 – Website Tết Nguyên Đán Việt Nam
 </footer>
 
 <script>
-function enterSite() {
-    document.getElementById("welcome").style.display = "none";
-    document.getElementById("content").style.display = "block";
+function enterSite(){
+    document.getElementById("welcome").style.display="none";
+    document.getElementById("content").style.display="block";
 }
+
+/* ĐẾM NGƯỢC TẾT 2026 (ÂM LỊCH ~ 17/02/2026 DƯƠNG) */
+const tetDate = new Date("2026-02-17T00:00:00").getTime();
+
+setInterval(()=>{
+    const now = new Date().getTime();
+    const distance = tetDate - now;
+
+    if(distance < 0) return;
+
+    document.getElementById("days").innerText =
+        Math.floor(distance / (1000*60*60*24));
+    document.getElementById("hours").innerText =
+        Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+    document.getElementById("minutes").innerText =
+        Math.floor((distance % (1000*60*60)) / (1000*60));
+    document.getElementById("seconds").innerText =
+        Math.floor((distance % (1000*60)) / 1000);
+},1000);
 </script>
 
 </body>
