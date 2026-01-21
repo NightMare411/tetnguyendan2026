@@ -118,12 +118,6 @@
     padding:25px;
     border:4px solid #d62828;
     box-shadow:0 10px 25px rgba(0,0,0,0.25);
-    transition:transform 0.3s, box-shadow 0.3s;
-}
-
-.section:hover{
-    transform:translateY(-6px);
-    box-shadow:0 18px 35px rgba(0,0,0,0.35);
 }
 
 .section h2{
@@ -149,13 +143,11 @@ footer{
 
 <body>
 
-<!-- VIDEO NỀN -->
 <video id="bg-video" autoplay muted loop>
     <source src="tet-bg.mp4" type="video/mp4">
 </video>
 <div class="overlay"></div>
 
-<!-- MÀN CHÀO -->
 <div id="welcome">
     <h1>🎊 Chào Mừng Tết Nguyên Đán 2026 🎊</h1>
 
@@ -169,55 +161,69 @@ footer{
     <button class="btn" onclick="enterSite()">🎉 Chúc Mừng Năm Mới 🎉</button>
 </div>
 
-<!-- TRANG 2 -->
 <div id="content">
     <div class="content-grid">
 
         <div class="section">
             <h2>🎆 Ý Nghĩa Tết Nguyên Đán</h2>
             <p>
-                Tết Nguyên Đán là dịp lễ quan trọng nhất của người Việt, đánh dấu sự kết thúc
-                năm cũ và mở ra khởi đầu mới với nhiều hy vọng, may mắn và bình an.
+                Tết Nguyên Đán là thời khắc thiêng liêng nhất trong năm của người Việt,
+                đánh dấu sự kết thúc của năm cũ và mở ra một khởi đầu mới.
+                Đây là dịp để mọi người hướng về cội nguồn, bày tỏ lòng biết ơn
+                đối với tổ tiên và cầu mong một năm mới bình an, may mắn.
+                Tết cũng là thời điểm để con người làm mới bản thân,
+                bỏ lại những điều chưa trọn vẹn và đón nhận hy vọng mới.
             </p>
         </div>
 
         <div class="section">
             <h2>🧧 Phong Tục Ngày Tết</h2>
             <p>
-                Dọn dẹp nhà cửa, cúng tổ tiên, chúc Tết và mừng tuổi đầu năm
-                là những phong tục mang đậm bản sắc văn hóa dân tộc.
+                Phong tục ngày Tết của người Việt rất phong phú và giàu bản sắc.
+                Trước Tết, các gia đình dọn dẹp nhà cửa, trang trí hoa mai, hoa đào
+                để đón tài lộc. Đêm giao thừa là lúc cúng tổ tiên, tiễn năm cũ
+                và chào đón năm mới. Những ngày đầu xuân, mọi người đi chúc Tết,
+                mừng tuổi và trao nhau những lời chúc tốt đẹp.
             </p>
         </div>
 
         <div class="section">
             <h2>🍽️ Ẩm Thực Ngày Xuân</h2>
             <p>
-                Bánh chưng, bánh tét, mứt Tết và các món truyền thống
-                thể hiện sự sum họp, đủ đầy và gắn kết gia đình.
+                Ẩm thực ngày Tết mang đậm ý nghĩa sum họp và đủ đầy.
+                Bánh chưng, bánh tét tượng trưng cho đất trời và sự gắn kết gia đình.
+                Mâm cơm ngày Tết thường có các món truyền thống
+                với mong muốn một năm mới sung túc, ấm no và hạnh phúc.
             </p>
         </div>
 
         <div class="section">
             <h2>🎶 Âm Nhạc Ngày Tết</h2>
             <p>
-                Những giai điệu xuân quen thuộc mang lại cảm giác rộn ràng,
-                ấm áp và khơi gợi ký ức gia đình.
+                Âm nhạc ngày Tết mang đến không khí rộn ràng, vui tươi khắp mọi nơi.
+                Những giai điệu xuân quen thuộc vang lên tạo cảm giác háo hức,
+                phấn khởi. Âm nhạc không chỉ giúp giải trí mà còn gợi nhớ
+                những kỷ niệm tuổi thơ và không khí đoàn viên gia đình.
             </p>
         </div>
 
         <div class="section">
             <h2>👨‍👩‍👧‍👦 Tết & Gia Đình</h2>
             <p>
-                Tết là thời điểm sum họp quý giá, nơi mọi người cùng nhau
-                chia sẻ niềm vui và những khoảnh khắc đáng nhớ.
+                Tết là dịp hiếm hoi để các thành viên trong gia đình sum họp đầy đủ.
+                Mọi người cùng nhau ăn cơm, trò chuyện và chia sẻ niềm vui.
+                Giá trị lớn nhất của Tết không nằm ở vật chất
+                mà chính là cảm giác được trở về nhà và ở bên người thân yêu.
             </p>
         </div>
 
         <div class="section">
             <h2>🌱 Ước Nguyện Năm Mới</h2>
             <p>
-                Mỗi người đều gửi gắm những ước mong tốt đẹp cho năm mới:
-                sức khỏe, thành công và hạnh phúc.
+                Bước sang năm mới, ai cũng mang theo những ước nguyện riêng.
+                Có người mong sức khỏe, học tập tiến bộ, công việc thuận lợi
+                và gia đình hạnh phúc. Những lời chúc đầu năm tuy giản dị
+                nhưng chứa đựng hy vọng và niềm tin vào một tương lai tốt đẹp.
             </p>
         </div>
 
@@ -234,9 +240,7 @@ function enterSite(){
     document.getElementById("content").style.display="block";
 }
 
-/* ĐẾM NGƯỢC TẾT 2026 (17/02/2026) */
 const tetDate = new Date("2026-02-17T00:00:00").getTime();
-
 setInterval(()=>{
     const now = new Date().getTime();
     const d = tetDate - now;
