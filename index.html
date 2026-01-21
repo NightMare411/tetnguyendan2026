@@ -10,7 +10,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:"Segoe UI", sans-serif;
+    font-family: "Segoe UI", sans-serif;
 }
 
 /* VIDEO NỀN */
@@ -21,14 +21,34 @@
     width:100%;
     height:100%;
     object-fit:cover;
-    z-index:-2;
+    z-index:-3;
 }
 
 .overlay{
     position:fixed;
     inset:0;
     background:rgba(0,0,0,0.45);
+    z-index:-2;
+}
+
+/* ẢNH RƠI */
+.flow{
+    position:fixed;
+    top:-120px;
+    width:70px;
+    opacity:0.85;
     z-index:-1;
+    pointer-events:none;
+    animation: fall linear infinite;
+}
+
+@keyframes fall{
+    from{
+        transform: translateY(-120px) rotate(0deg);
+    }
+    to{
+        transform: translateY(110vh) rotate(360deg);
+    }
 }
 
 /* MÀN CHÀO */
@@ -64,13 +84,9 @@
 }
 
 .time-box span{
-    display:block;
     font-size:24px;
     font-weight:bold;
-}
-
-.time-box small{
-    font-size:13px;
+    display:block;
 }
 
 /* NÚT */
@@ -91,11 +107,11 @@
     100%{transform:scale(1)}
 }
 
-/* TRANG 2 */
+/* NỘI DUNG */
 #content{
     display:none;
-    padding:50px 15px;
-    animation:fadeIn 1.2s ease forwards;
+    padding:40px 15px;
+    animation:fadeIn 1.5s ease forwards;
 }
 
 @keyframes fadeIn{
@@ -103,124 +119,70 @@
     to{opacity:1; transform:translateY(0);}
 }
 
-/* GRID */
-.content-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
-    max-width:1100px;
-    margin:auto;
-}
-
 .section{
+    max-width:900px;
+    margin:25px auto;
     background:rgba(255,255,255,0.95);
-    border-radius:15px;
+    border-radius:16px;
     padding:25px;
     border:4px solid #d62828;
     box-shadow:0 10px 25px rgba(0,0,0,0.25);
-    transition:transform 0.3s, box-shadow 0.3s;
-}
-
-.section:hover{
-    transform:translateY(-6px);
-    box-shadow:0 18px 35px rgba(0,0,0,0.35);
 }
 
 .section h2{
     color:#d62828;
-    text-align:center;
     margin-bottom:12px;
-}
-
-.section p{
-    color:#333;
-    line-height:1.7;
-    text-align:justify;
+    text-align:center;
 }
 
 footer{
     text-align:center;
     color:#fff;
-    margin:40px 0;
-    font-size:14px;
+    margin:30px 0;
 }
 </style>
 </head>
 
 <body>
 
-<!-- VIDEO NỀN -->
+<!-- VIDEO -->
 <video id="bg-video" autoplay muted loop>
     <source src="tet-bg.mp4" type="video/mp4">
 </video>
 <div class="overlay"></div>
+
+<!-- 8 ẢNH RƠI -->
+<img src="images/flow1.png" class="flow">
+<img src="images/flow2.png" class="flow">
+<img src="images/flow3.png" class="flow">
+<img src="images/flow4.png" class="flow">
+<img src="images/flow5.png" class="flow">
+<img src="images/flow6.png" class="flow">
+<img src="images/flow7.png" class="flow">
+<img src="images/flow8.png" class="flow">
 
 <!-- MÀN CHÀO -->
 <div id="welcome">
     <h1>🎊 Chào Mừng Tết Nguyên Đán 2026 🎊</h1>
 
     <div id="countdown">
-        <div class="time-box"><span id="days">0</span><small>Ngày</small></div>
-        <div class="time-box"><span id="hours">0</span><small>Giờ</small></div>
-        <div class="time-box"><span id="minutes">0</span><small>Phút</small></div>
-        <div class="time-box"><span id="seconds">0</span><small>Giây</small></div>
+        <div class="time-box"><span id="days">0</span>Ngày</div>
+        <div class="time-box"><span id="hours">0</span>Giờ</div>
+        <div class="time-box"><span id="minutes">0</span>Phút</div>
+        <div class="time-box"><span id="seconds">0</span>Giây</div>
     </div>
 
     <button class="btn" onclick="enterSite()">🎉 Chúc Mừng Năm Mới 🎉</button>
 </div>
 
-<!-- TRANG 2 -->
+<!-- NỘI DUNG -->
 <div id="content">
-    <div class="content-grid">
-
-        <div class="section">
-            <h2>🎆 Ý Nghĩa Tết Nguyên Đán</h2>
-            <p>
-                Tết Nguyên Đán là dịp lễ quan trọng nhất của người Việt, đánh dấu sự kết thúc
-                năm cũ và mở ra khởi đầu mới với nhiều hy vọng, may mắn và bình an.
-            </p>
-        </div>
-
-        <div class="section">
-            <h2>🧧 Phong Tục Ngày Tết</h2>
-            <p>
-                Dọn dẹp nhà cửa, cúng tổ tiên, chúc Tết và mừng tuổi đầu năm
-                là những phong tục mang đậm bản sắc văn hóa dân tộc.
-            </p>
-        </div>
-
-        <div class="section">
-            <h2>🍽️ Ẩm Thực Ngày Xuân</h2>
-            <p>
-                Bánh chưng, bánh tét, mứt Tết và các món truyền thống
-                thể hiện sự sum họp, đủ đầy và gắn kết gia đình.
-            </p>
-        </div>
-
-        <div class="section">
-            <h2>🎶 Âm Nhạc Ngày Tết</h2>
-            <p>
-                Những giai điệu xuân quen thuộc mang lại cảm giác rộn ràng,
-                ấm áp và khơi gợi ký ức gia đình.
-            </p>
-        </div>
-
-        <div class="section">
-            <h2>👨‍👩‍👧‍👦 Tết & Gia Đình</h2>
-            <p>
-                Tết là thời điểm sum họp quý giá, nơi mọi người cùng nhau
-                chia sẻ niềm vui và những khoảnh khắc đáng nhớ.
-            </p>
-        </div>
-
-        <div class="section">
-            <h2>🌱 Ước Nguyện Năm Mới</h2>
-            <p>
-                Mỗi người đều gửi gắm những ước mong tốt đẹp cho năm mới:
-                sức khỏe, thành công và hạnh phúc.
-            </p>
-        </div>
-
+    <div class="section">
+        <h2>Tết Nguyên Đán 2026</h2>
+        <p>
+            Tết Nguyên Đán là dịp lễ truyền thống quan trọng nhất của người Việt Nam,
+            là thời điểm sum họp, khởi đầu mới và gửi gắm những ước vọng tốt đẹp.
+        </p>
     </div>
 </div>
 
@@ -229,24 +191,30 @@ footer{
 </footer>
 
 <script>
+/* VÀO TRANG */
 function enterSite(){
     document.getElementById("welcome").style.display="none";
     document.getElementById("content").style.display="block";
 }
 
-/* ĐẾM NGƯỢC TẾT 2026 (17/02/2026) */
+/* ĐẾM NGƯỢC */
 const tetDate = new Date("2026-02-17T00:00:00").getTime();
-
 setInterval(()=>{
-    const now = new Date().getTime();
+    const now = Date.now();
     const d = tetDate - now;
-    if(d < 0) return;
-
-    days.innerText = Math.floor(d / (1000*60*60*24));
-    hours.innerText = Math.floor((d % (1000*60*60*24)) / (1000*60*60));
-    minutes.innerText = Math.floor((d % (1000*60*60)) / (1000*60));
-    seconds.innerText = Math.floor((d % (1000*60)) / 1000);
+    if(d<0) return;
+    days.innerText = Math.floor(d/(1000*60*60*24));
+    hours.innerText = Math.floor(d%(1000*60*60*24)/(1000*60*60));
+    minutes.innerText = Math.floor(d%(1000*60*60)/(1000*60));
+    seconds.innerText = Math.floor(d%(1000*60)/1000);
 },1000);
+
+/* RANDOM ẢNH RƠI */
+document.querySelectorAll(".flow").forEach(img=>{
+    img.style.left = Math.random()*100 + "vw";
+    img.style.animationDuration = 8 + Math.random()*6 + "s";
+    img.style.animationDelay = Math.random()*5 + "s";
+});
 </script>
 
 </body>
