@@ -1,252 +1,77 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tết Nguyên Đán 2026</title>
+<div class="content-grid">
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:"Segoe UI",sans-serif;
-}
-
-/* VIDEO NỀN */
-#bg-video{
-    position:fixed;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    z-index:0;
-}
-
-.overlay{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.45);
-    z-index:1;
-}
-
-/* ===== CUỘN PHIM ===== */
-.film-strip{
-    position:fixed;
-    top:0;
-    width:130px;
-    height:220vh;
-    display:flex;
-    flex-direction:column;
-    gap:20px;
-    animation:filmMove 22s linear infinite;
-    z-index:5;
-    pointer-events:none;
-}
-
-.film-left{ left:10px; }
-.film-right{ right:10px; }
-
-.film-strip img{
-    width:100%;
-    border-radius:14px;
-    box-shadow:0 6px 16px rgba(0,0,0,0.35);
-}
-
-/* CHUYỂN ĐỘNG CUỘN PHIM */
-@keyframes filmMove{
-    from{ transform:translateY(0); }
-    to{ transform:translateY(-50%); }
-}
-
-/* ===== MÀN CHÀO ===== */
-#welcome{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    color:#fff;
-    text-align:center;
-    position:relative;
-    z-index:10;
-    padding:20px;
-}
-
-#welcome h1{
-    font-size:32px;
-    margin-bottom:15px;
-}
-
-/* ĐẾM NGƯỢC */
-#countdown{
-    display:flex;
-    gap:12px;
-    margin:20px 0;
-}
-
-.time-box{
-    background:#ffd700;
-    color:#b30000;
-    padding:12px;
-    border-radius:12px;
-    min-width:70px;
-}
-
-.time-box span{
-    display:block;
-    font-size:24px;
-    font-weight:bold;
-}
-
-/* NÚT */
-.btn{
-    background:linear-gradient(135deg,#ffd700,#ff3b3b);
-    border:none;
-    padding:16px 36px;
-    font-size:20px;
-    border-radius:50px;
-    color:#fff;
-    cursor:pointer;
-    animation:pulse 1.5s infinite;
-}
-
-@keyframes pulse{
-    0%{transform:scale(1)}
-    50%{transform:scale(1.05)}
-    100%{transform:scale(1)}
-}
-
-/* ===== NỘI DUNG ===== */
-#content{
-    display:none;
-    padding:40px 15px;
-    position:relative;
-    z-index:10;
-    animation:fadeIn 1.2s ease forwards;
-}
-
-@keyframes fadeIn{
-    from{opacity:0; transform:translateY(40px);}
-    to{opacity:1; transform:translateY(0);}
-}
-
-.section{
-    max-width:900px;
-    margin:25px auto;
-    background:rgba(255,255,255,0.95);
-    border-radius:16px;
-    padding:25px;
-    border:4px solid #d62828;
-    box-shadow:0 10px 25px rgba(0,0,0,0.25);
-}
-
-.section h2{
-    color:#d62828;
-    margin-bottom:15px;
-    text-align:center;
-}
-
-.section p{
-    line-height:1.7;
-    color:#333;
-}
-
-footer{
-    text-align:center;
-    color:#fff;
-    margin:30px 0;
-    position:relative;
-    z-index:10;
-}
-</style>
-</head>
-
-<body>
-
-<!-- VIDEO -->
-<video id="bg-video" autoplay muted loop playsinline>
-    <source src="tet-bg.mp4" type="video/mp4">
-</video>
-<div class="overlay"></div>
-
-<!-- CUỘN PHIM TRÁI -->
-<div class="film-strip film-left">
-    <img src="images/flow1.png">
-    <img src="images/flow2.png">
-    <img src="images/flow3.png">
-    <img src="images/flow4.png">
-    <img src="images/flow5.png">
-    <img src="images/flow6.png">
-    <img src="images/flow7.png">
-    <img src="images/flow8.png">
-    <img src="images/flow1.png">
-    <img src="images/flow2.png">
-    <img src="images/flow3.png">
-    <img src="images/flow4.png">
-</div>
-
-<!-- CUỘN PHIM PHẢI -->
-<div class="film-strip film-right">
-    <img src="images/flow8.png">
-    <img src="images/flow7.png">
-    <img src="images/flow6.png">
-    <img src="images/flow5.png">
-    <img src="images/flow4.png">
-    <img src="images/flow3.png">
-    <img src="images/flow2.png">
-    <img src="images/flow1.png">
-    <img src="images/flow8.png">
-    <img src="images/flow7.png">
-    <img src="images/flow6.png">
-    <img src="images/flow5.png">
-</div>
-
-<!-- MÀN CHÀO -->
-<div id="welcome">
-    <h1>🎊 Chào Mừng Tết Nguyên Đán 2026 🎊</h1>
-
-    <div id="countdown">
-        <div class="time-box"><span id="days">0</span>Ngày</div>
-        <div class="time-box"><span id="hours">0</span>Giờ</div>
-        <div class="time-box"><span id="minutes">0</span>Phút</div>
-        <div class="time-box"><span id="seconds">0</span>Giây</div>
-    </div>
-
-    <button class="btn" onclick="enterSite()">🎉 Chúc Mừng Năm Mới 🎉</button>
-</div>
-
-<!-- NỘI DUNG -->
-<div id="content">
     <div class="section">
-        <h2>Tết Nguyên Đán Việt Nam</h2>
+        <h2>🎆 Ý Nghĩa Tết Nguyên Đán</h2>
         <p>
-            Tết Nguyên Đán là dịp lễ lớn nhất trong năm, mang ý nghĩa đoàn viên,
-            khởi đầu mới và gửi gắm những ước vọng tốt đẹp cho tương lai.
+            Tết Nguyên Đán là dịp lễ truyền thống lớn nhất trong năm của người Việt Nam,
+            mang ý nghĩa đánh dấu sự kết thúc của một năm cũ và chào đón một năm mới
+            với nhiều hy vọng và khởi đầu tốt đẹp.
+        </p>
+        <p>
+            Đây không chỉ là thời gian nghỉ ngơi mà còn là khoảnh khắc để mọi người
+            nhìn lại những gì đã qua, bỏ lại điều chưa may mắn và hướng đến tương lai
+            với tinh thần tích cực hơn.
         </p>
     </div>
+
+    <div class="section">
+        <h2>🧧 Phong Tục Ngày Tết</h2>
+        <p>
+            Trong những ngày Tết, người Việt thường dọn dẹp và trang trí nhà cửa
+            để đón năm mới với mong muốn xua đi điều xấu và đón nhận may mắn.
+        </p>
+        <p>
+            Phong tục chúc Tết, mừng tuổi đầu năm thể hiện sự kính trọng đối với người lớn
+            và gửi lời chúc tốt đẹp đến thế hệ trẻ, mang ý nghĩa gắn kết gia đình và xã hội.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>🍽️ Ẩm Thực Ngày Xuân</h2>
+        <p>
+            Mâm cơm ngày Tết là sự kết hợp của nhiều món ăn truyền thống như bánh chưng,
+            bánh tét, thịt kho, dưa hành và các loại mứt ngọt.
+        </p>
+        <p>
+            Mỗi món ăn đều mang ý nghĩa riêng, tượng trưng cho sự đủ đầy, sung túc
+            và mong ước một năm mới no ấm, hạnh phúc.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>🎶 Âm Nhạc Ngày Tết</h2>
+        <p>
+            Âm nhạc ngày Tết luôn mang giai điệu vui tươi, rộn ràng,
+            góp phần tạo nên không khí xuân tràn ngập khắp mọi nơi.
+        </p>
+        <p>
+            Những bài hát quen thuộc về mùa xuân, gia đình và quê hương
+            giúp gợi nhớ kỷ niệm đẹp và làm cho ngày Tết thêm ấm áp.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>👨‍👩‍👧‍👦 Tết & Gia Đình</h2>
+        <p>
+            Tết là dịp hiếm hoi để các thành viên trong gia đình quây quần bên nhau
+            sau một năm bận rộn học tập và làm việc.
+        </p>
+        <p>
+            Những bữa cơm sum họp, những câu chuyện đầu năm
+            giúp tăng thêm sự gắn bó và tình cảm giữa các thế hệ.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>🌱 Ước Nguyện Năm Mới</h2>
+        <p>
+            Mỗi dịp năm mới, mọi người đều gửi gắm những ước nguyện tốt đẹp
+            cho bản thân và những người xung quanh.
+        </p>
+        <p>
+            Đó có thể là mong ước về sức khỏe, học tập tiến bộ,
+            công việc thuận lợi và một cuộc sống bình an, hạnh phúc.
+        </p>
+    </div>
+
 </div>
-
-<footer>© 2026 – Website Tết Nguyên Đán</footer>
-
-<script>
-function enterSite(){
-    document.getElementById("welcome").style.display="none";
-    document.getElementById("content").style.display="block";
-}
-
-/* ĐẾM NGƯỢC TẾT */
-const tetDate = new Date("2026-02-17T00:00:00").getTime();
-setInterval(()=>{
-    const now = new Date().getTime();
-    const d = tetDate - now;
-    if(d < 0) return;
-    days.innerText = Math.floor(d/(1000*60*60*24));
-    hours.innerText = Math.floor((d%(1000*60*60*24))/(1000*60*60));
-    minutes.innerText = Math.floor((d%(1000*60*60))/(1000*60));
-    seconds.innerText = Math.floor((d%(1000*60))/1000);
-},1000);
-</script>
-
-</body>
-</html>
