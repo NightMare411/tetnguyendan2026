@@ -7,29 +7,23 @@
 
 <style>
 *{
+    box-sizing: border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, sans-serif;
 }
 
-body{
-    overflow-x:hidden;
-    background:#000;
-}
-
-/* VIDEO BACKGROUND */
-.video-bg{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
+/* ===== VIDEO BACKGROUND ===== */
+#bg-video{
+    position: fixed;
+    right:0;
+    bottom:0;
+    min-width:100%;
+    min-height:100%;
     object-fit:cover;
     z-index:-2;
 }
 
-/* LỚP PHỦ */
 .overlay{
     position:fixed;
     inset:0;
@@ -37,100 +31,148 @@ body{
     z-index:-1;
 }
 
-/* KHUNG */
-.container{
-    max-width:900px;
-    margin:80px auto;
+/* ===== MÀN HÌNH LÌ XÌ ===== */
+#intro{
+    position:fixed;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    color:white;
+    text-align:center;
+    background:rgba(0,0,0,0.6);
+    z-index:10;
+}
+
+#intro h1{
+    font-size:32px;
+    margin-bottom:20px;
+    animation:fadeDown 1.2s ease;
+}
+
+#lixi-btn{
+    font-size:22px;
+    padding:18px 40px;
+    border:none;
+    border-radius:50px;
+    background:linear-gradient(135deg,#ffcc00,#ff6600);
+    color:#b30000;
+    cursor:pointer;
+    animation:pulse 1.5s infinite;
+}
+
+#lixi-btn:hover{
+    transform:scale(1.08);
+}
+
+/* ===== NỘI DUNG CHÍNH ===== */
+#main{
+    display:none;
     padding:20px;
+    animation:fadeIn 1.2s ease forwards;
 }
 
-/* CARD HIỆN TỪ TỪ */
-.content{
-    background:rgba(255,255,255,0.92);
-    border-radius:18px;
-    padding:30px;
+header{
+    text-align:center;
+    color:white;
     margin-bottom:30px;
-    box-shadow:0 15px 35px rgba(0,0,0,0.35);
-
-    opacity:0;
-    animation:fadeUp 1.2s ease forwards;
 }
 
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(50px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+header h1{
+    font-size:34px;
 }
 
-.content h2{
-    color:#c62828;
-    margin-bottom:15px;
+.section{
+    background:rgba(255,255,255,0.92);
+    border-radius:15px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.25);
+    animation:slideUp 1s ease;
 }
 
-.content p{
-    line-height:1.8;
-    text-align:justify;
+.section h2{
+    color:#c40000;
     margin-bottom:10px;
 }
 
-/* MOBILE */
-@media(max-width:600px){
-    .container{
-        margin:40px 10px;
-    }
+.section img{
+    width:100%;
+    border-radius:10px;
+    margin:10px 0;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeIn{
+    from{opacity:0}
+    to{opacity:1}
+}
+
+@keyframes slideUp{
+    from{transform:translateY(30px);opacity:0}
+    to{transform:translateY(0);opacity:1}
+}
+
+@keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(255,200,0,0.8)}
+    70%{box-shadow:0 0 0 25px rgba(255,200,0,0)}
+    100%{box-shadow:0 0 0 0 rgba(255,200,0,0)}
+}
+
+@keyframes fadeDown{
+    from{opacity:0;transform:translateY(-20px)}
+    to{opacity:1;transform:translateY(0)}
 }
 </style>
 </head>
 
 <body>
 
-<!-- VIDEO NỀN (ĐÚNG TÊN FILE) -->
-<video class="video-bg" autoplay muted loop playsinline>
+<!-- VIDEO NỀN -->
+<video autoplay muted loop id="bg-video">
     <source src="tet-bg.mp4" type="video/mp4">
 </video>
-
 <div class="overlay"></div>
 
-<div class="container">
-
-    <div class="content">
-        <h2>🌸 Giới thiệu Tết Nguyên Đán 2026</h2>
-        <p>
-            Tết Nguyên Đán 2026 là dịp lễ truyền thống quan trọng nhất của người Việt Nam,
-            đánh dấu sự khởi đầu của một năm mới với nhiều hy vọng, may mắn và bình an.
-        </p>
-    </div>
-
-    <div class="content" style="animation-delay:.3s">
-        <h2>🧧 Phong tục ngày Tết</h2>
-        <p>
-            Người Việt có nhiều phong tục truyền thống như dọn dẹp nhà cửa,
-            cúng tổ tiên, chúc Tết, lì xì đầu năm để cầu mong điều tốt đẹp.
-        </p>
-    </div>
-
-    <div class="content" style="animation-delay:.6s">
-        <h2>🎆 Hoạt động mùa xuân</h2>
-        <p>
-            Lễ hội xuân, chợ hoa, múa lân, bắn pháo hoa tạo nên không khí rộn ràng
-            và đầy sắc xuân trên khắp mọi miền đất nước.
-        </p>
-    </div>
-
-    <div class="content" style="animation-delay:.9s">
-        <h2>🎵 Âm nhạc ngày Tết</h2>
-        <p>
-            Những bản nhạc xuân mang giai điệu vui tươi giúp Tết thêm ấm áp
-            và gắn kết các thế hệ trong gia đình.
-        </p>
-    </div>
-
+<!-- MÀN HÌNH LÌ XÌ -->
+<div id="intro">
+    <h1>🧧 TẾT NGUYÊN ĐÁN 2026 🧧</h1>
+    <button id="lixi-btn">Nhận Lì Xì</button>
 </div>
+
+<!-- NỘI DUNG CHÍNH -->
+<div id="main">
+    <header>
+        <h1>🎉 Xuân Bính Ngọ 2026 🎉</h1>
+        <p>Nét đẹp văn hóa truyền thống Việt Nam</p>
+    </header>
+
+    <div class="section">
+        <h2>🌸 Ý nghĩa Tết Nguyên Đán</h2>
+        <img src="tet-bg.jpg">
+        <p>
+        Tết Nguyên Đán là dịp lễ lớn nhất trong năm của người Việt, mang ý nghĩa
+        đoàn viên, sum họp gia đình và tưởng nhớ tổ tiên...
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>🧨 Phong tục ngày Tết</h2>
+        <img src="ad3.jpg">
+        <p>
+        Người Việt có nhiều phong tục truyền thống như chúc Tết, lì xì,
+        gói bánh chưng, trang trí nhà cửa bằng hoa mai, hoa đào...
+        </p>
+    </div>
+</div>
+
+<script>
+document.getElementById("lixi-btn").onclick = function(){
+    document.getElementById("intro").style.display = "none";
+    document.getElementById("main").style.display = "block";
+};
+</script>
 
 </body>
 </html>
