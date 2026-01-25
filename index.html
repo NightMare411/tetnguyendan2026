@@ -20,14 +20,14 @@
     width:100%;
     height:100%;
     object-fit:cover;
-    z-index:-3;
+    z-index:-2;
 }
 
 .overlay{
     position:fixed;
     inset:0;
     background:rgba(0,0,0,0.45);
-    z-index:-2;
+    z-index:-1;
 }
 
 /* MÀN CHÀO */
@@ -98,9 +98,15 @@
     to{opacity:1; transform:translateY(0);}
 }
 
-.section{
+.content-grid{
     max-width:900px;
-    margin:20px auto;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+
+.section{
     background:rgba(255,255,255,0.95);
     border-radius:15px;
     padding:25px;
@@ -114,46 +120,42 @@
 }
 
 .section p{
-    line-height:1.7;
+    line-height:1.8;
+    color:#333;
+    text-align:justify;
 }
 
-/* HOA + LÌ XÌ RƠI */
-.fall{
+/* NHẠC */
+#music-toggle{
     position:fixed;
-    top:-50px;
-    font-size:24px;
-    animation:fall linear infinite;
-    z-index:5;
+    bottom:20px;
+    right:20px;
+    z-index:999;
+    background:#ffd700;
+    border:none;
+    padding:10px 16px;
+    border-radius:25px;
+    cursor:pointer;
+    font-weight:bold;
 }
 
-@keyframes fall{
-    to{
-        transform:translateY(110vh) rotate(360deg);
-        opacity:0;
-    }
-}
-
-/* PHÁO HOA ĐẸP */
-.firework{
+#volume-box{
     position:fixed;
-    pointer-events:none;
-    z-index:6;
+    bottom:70px;
+    right:20px;
+    z-index:999;
+    background:rgba(0,0,0,0.55);
+    padding:10px 14px;
+    border-radius:25px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#fff;
 }
 
-.spark{
-    position:absolute;
-    width:6px;
-    height:6px;
-    border-radius:50%;
-    animation:explode 1s ease-out forwards;
-}
-
-@keyframes explode{
-    from{transform:translate(0,0);opacity:1}
-    to{
-        transform:translate(var(--x),var(--y));
-        opacity:0
-    }
+#volume-slider{
+    width:110px;
+    accent-color:#ffd700;
 }
 
 footer{
@@ -172,15 +174,20 @@ footer{
 </video>
 <div class="overlay"></div>
 
+<!-- AUDIO -->
+<audio id="bg-music" loop>
+    <source src="tet-music.mp3" type="audio/mpeg">
+</audio>
+
 <!-- MÀN CHÀO -->
 <div id="welcome">
     <h1>🎊 Chào Mừng Tết Nguyên Đán 2026 🎊</h1>
 
     <div id="countdown">
-        <div class="time-box"><span id="days">0</span>Ngày</div>
-        <div class="time-box"><span id="hours">0</span>Giờ</div>
-        <div class="time-box"><span id="minutes">0</span>Phút</div>
-        <div class="time-box"><span id="seconds">0</span>Giây</div>
+        <div class="time-box"><span id="days">0</span><small>Ngày</small></div>
+        <div class="time-box"><span id="hours">0</span><small>Giờ</small></div>
+        <div class="time-box"><span id="minutes">0</span><small>Phút</small></div>
+        <div class="time-box"><span id="seconds">0</span><small>Giây</small></div>
     </div>
 
     <button class="btn" onclick="enterSite()">🎉 Chúc Mừng Năm Mới 🎉</button>
@@ -188,66 +195,99 @@ footer{
 
 <!-- TRANG 2 -->
 <div id="content">
+    <div class="content-grid">
 
-<div class="section"><h2>1. Tết Nguyên Đán là gì?</h2><p>Tết Nguyên Đán là ngày lễ quan trọng nhất của người Việt, đánh dấu năm mới âm lịch.</p></div>
-<div class="section"><h2>2. Nguồn gốc ngày Tết</h2><p>Tết gắn liền với nền văn minh lúa nước và tín ngưỡng dân gian.</p></div>
-<div class="section"><h2>3. Ý nghĩa Tết</h2><p>Là dịp đoàn viên, tri ân tổ tiên và khởi đầu mới.</p></div>
-<div class="section"><h2>4. Phong tục ngày Tết</h2><p>Cúng tổ tiên, chúc Tết, lì xì, xông đất.</p></div>
-<div class="section"><h2>5. Món ăn ngày Tết</h2><p>Bánh chưng, bánh tét, mứt Tết.</p></div>
-<div class="section"><h2>6. Văn hóa 3 miền</h2><p>Mỗi miền có nét Tết riêng nhưng cùng tinh thần sum họp.</p></div>
-<div class="section"><h2>7. Lịch nghỉ Tết 2026</h2><p>Dự kiến nghỉ 7–9 ngày theo quy định.</p></div>
-<div class="section"><h2>8. Âm nhạc ngày Tết</h2><p>Những ca khúc xuân mang không khí rộn ràng.</p></div>
+        <div class="section">
+            <h2>1. Tết Nguyên Đán là gì?</h2>
+            <p>Tết Nguyên Đán là ngày lễ truyền thống quan trọng nhất của người Việt...</p>
+        </div>
 
+        <div class="section">
+            <h2>2. Nguồn gốc ngày Tết</h2>
+            <p>Tết có nguồn gốc từ nền văn minh lúa nước...</p>
+        </div>
+
+        <div class="section">
+            <h2>3. Ý nghĩa ngày Tết</h2>
+            <p>Tết mang ý nghĩa đoàn viên, khởi đầu mới...</p>
+        </div>
+
+        <div class="section">
+            <h2>4. Phong tục ngày Tết</h2>
+            <p>Dọn nhà, cúng tổ tiên, chúc Tết, lì xì...</p>
+        </div>
+
+        <div class="section">
+            <h2>5. Trang phục ngày Tết</h2>
+            <p>Áo dài truyền thống thể hiện nét đẹp văn hóa...</p>
+        </div>
+
+        <div class="section">
+            <h2>6. Âm nhạc ngày Tết</h2>
+            <p>Những ca khúc xuân tạo không khí rộn ràng...</p>
+        </div>
+
+    </div>
+</div>
+
+<button id="music-toggle" onclick="toggleMusic()">🔈 Nhạc: TẮT</button>
+
+<div id="volume-box">
+    🔊
+    <input type="range" id="volume-slider" min="0" max="100" value="50" oninput="changeVolume(this.value)">
 </div>
 
 <footer>© 2026 – Website Tết Nguyên Đán Việt Nam</footer>
 
 <script>
 function enterSite(){
-    welcome.style.display="none";
-    content.style.display="block";
+    document.getElementById("welcome").style.display="none";
+    document.getElementById("content").style.display="block";
 }
 
-/* ĐẾM NGƯỢC */
-const tetDate=new Date("2026-02-17").getTime();
+/* COUNTDOWN */
+const tetDate = new Date("2026-02-17T00:00:00").getTime();
 setInterval(()=>{
-    const d=tetDate-new Date().getTime();
-    if(d<0)return;
-    days.innerText=Math.floor(d/86400000);
-    hours.innerText=Math.floor(d%86400000/3600000);
-    minutes.innerText=Math.floor(d%3600000/60000);
-    seconds.innerText=Math.floor(d%60000/1000);
+    const now = new Date().getTime();
+    const d = tetDate - now;
+    if(d < 0) return;
+    days.innerText = Math.floor(d / (1000*60*60*24));
+    hours.innerText = Math.floor((d%(1000*60*60*24))/(1000*60*60));
+    minutes.innerText = Math.floor((d%(1000*60*60))/(1000*60));
+    seconds.innerText = Math.floor((d%(1000*60))/1000);
 },1000);
 
-/* HOA + LÌ XÌ */
-setInterval(()=>{
-    const e=document.createElement("div");
-    e.className="fall";
-    e.innerText=Math.random()>0.5?"🌸":"🧧";
-    e.style.left=Math.random()*100+"vw";
-    e.style.animationDuration=4+Math.random()*4+"s";
-    document.body.appendChild(e);
-    setTimeout(()=>e.remove(),8000);
-},500);
+/* NHẠC */
+const music = document.getElementById("bg-music");
+const btn = document.getElementById("music-toggle");
+music.volume = 0.5;
+let started = false;
 
-/* PHÁO HOA ĐẸP */
-function firework(){
-    const f=document.createElement("div");
-    f.className="firework";
-    f.style.left=Math.random()*100+"vw";
-    f.style.top=Math.random()*50+"vh";
-    document.body.appendChild(f);
-    for(let i=0;i<20;i++){
-        const s=document.createElement("div");
-        s.className="spark";
-        s.style.background=`hsl(${Math.random()*360},100%,60%)`;
-        s.style.setProperty("--x",(Math.random()*200-100)+"px");
-        s.style.setProperty("--y",(Math.random()*200-100)+"px");
-        f.appendChild(s);
+function toggleMusic(){
+    if(music.paused){
+        music.play();
+        btn.innerText="🔊 Nhạc: BẬT";
+    }else{
+        music.pause();
+        btn.innerText="🔈 Nhạc: TẮT";
     }
-    setTimeout(()=>f.remove(),1200);
 }
-setInterval(firework,1500);
+
+function changeVolume(v){
+    music.volume = v/100;
+}
+
+/* TỰ BẬT KHI CHẠM LẦN ĐẦU */
+function autoPlay(){
+    if(!started){
+        music.play().then(()=>{
+            btn.innerText="🔊 Nhạc: BẬT";
+            started=true;
+        }).catch(()=>{});
+    }
+}
+document.addEventListener("click", autoPlay);
+document.addEventListener("touchstart", autoPlay);
 </script>
 
 </body>
