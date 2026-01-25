@@ -20,14 +20,14 @@
     width:100%;
     height:100%;
     object-fit:cover;
-    z-index:-2;
+    z-index:-3;
 }
 
 .overlay{
     position:fixed;
     inset:0;
     background:rgba(0,0,0,0.45);
-    z-index:-1;
+    z-index:-2;
 }
 
 /* MÀN CHÀO */
@@ -40,6 +40,7 @@
     color:#fff;
     text-align:center;
     padding:20px;
+    z-index:1;
 }
 
 #welcome h1{
@@ -55,7 +56,7 @@
 }
 
 .time-box{
-    background:#ffd700;
+    background:rgba(255,215,0,0.95);
     color:#b30000;
     padding:12px 16px;
     border-radius:12px;
@@ -63,7 +64,6 @@
 }
 
 .time-box span{
-    display:block;
     font-size:24px;
     font-weight:bold;
 }
@@ -89,15 +89,17 @@
 /* TRANG 2 */
 #content{
     display:none;
-    padding:60px 15px;
+    padding:50px 15px;
+    animation:fadeIn 1.2s ease forwards;
 }
 
-/* GRID NỘI DUNG */
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(40px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
 .content-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
-    max-width:1100px;
+    max-width:1000px;
     margin:auto;
 }
 
@@ -105,13 +107,13 @@
     background:rgba(255,255,255,0.95);
     border-radius:15px;
     padding:25px;
+    margin-bottom:30px;
     border:4px solid #d62828;
     box-shadow:0 10px 25px rgba(0,0,0,0.25);
 }
 
 .section h2{
     color:#d62828;
-    text-align:center;
     margin-bottom:12px;
 }
 
@@ -121,30 +123,33 @@
     text-align:justify;
 }
 
-/* ẢNH TRANG TRÍ */
-.decor{
+/* HOA & LÌ XÌ RƠI */
+.falling{
     position:fixed;
-    width:120px;
-    opacity:0.9;
+    top:-40px;
+    z-index:5;
     pointer-events:none;
+    animation:fall linear infinite;
 }
 
-.left{
-    left:10px;
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(360deg);
+    }
 }
 
-.right{
-    right:10px;
+/* PHÁO HOA */
+#fireworks{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:4;
 }
-
-.top{ top:80px; }
-.mid{ top:260px; }
-.bot{ top:440px; }
 
 footer{
     text-align:center;
     color:#fff;
-    margin:40px 0;
+    margin:30px 0;
 }
 </style>
 </head>
@@ -157,27 +162,17 @@ footer{
 </video>
 <div class="overlay"></div>
 
-<!-- ẢNH TRANG TRÍ -->
-<img src="images/flow1.png" class="decor left top">
-<img src="images/flow2.png" class="decor left mid">
-<img src="images/flow3.png" class="decor left bot">
-
-<img src="images/flow4.png" class="decor right top">
-<img src="images/flow5.png" class="decor right mid">
-<img src="images/flow6.png" class="decor right bot">
-
-<img src="images/flow7.png" class="decor left" style="bottom:40px">
-<img src="images/flow8.png" class="decor right" style="bottom:40px">
+<canvas id="fireworks"></canvas>
 
 <!-- MÀN CHÀO -->
 <div id="welcome">
     <h1>🎊 Chào Mừng Tết Nguyên Đán 2026 🎊</h1>
 
     <div id="countdown">
-        <div class="time-box"><span id="days">0</span>Ngày</div>
-        <div class="time-box"><span id="hours">0</span>Giờ</div>
-        <div class="time-box"><span id="minutes">0</span>Phút</div>
-        <div class="time-box"><span id="seconds">0</span>Giây</div>
+        <div class="time-box"><span id="days">0</span><small>Ngày</small></div>
+        <div class="time-box"><span id="hours">0</span><small>Giờ</small></div>
+        <div class="time-box"><span id="minutes">0</span><small>Phút</small></div>
+        <div class="time-box"><span id="seconds">0</span><small>Giây</small></div>
     </div>
 
     <button class="btn" onclick="enterSite()">🎉 Chúc Mừng Năm Mới 🎉</button>
@@ -185,18 +180,18 @@ footer{
 
 <!-- TRANG 2 -->
 <div id="content">
-<div class="content-grid">
+    <div class="content-grid">
 
-<div class="section"><h2>1. Tết Nguyên Đán là gì?</h2><p>Tết Nguyên Đán là ngày lễ quan trọng nhất của người Việt, đánh dấu sự khởi đầu năm mới âm lịch.</p></div>
-<div class="section"><h2>2. Nguồn gốc ngày Tết</h2><p>Tết bắt nguồn từ nền văn minh lúa nước, gắn với chu kỳ mùa vụ và tín ngưỡng dân gian.</p></div>
-<div class="section"><h2>3. Ý nghĩa ngày Tết</h2><p>Tết tượng trưng cho đoàn viên, hiếu đạo và hy vọng về một năm mới tốt đẹp.</p></div>
-<div class="section"><h2>4. Phong tục ngày Tết</h2><p>Dọn dẹp nhà cửa, cúng tổ tiên, chúc Tết và lì xì là những phong tục quen thuộc.</p></div>
-<div class="section"><h2>5. Món ăn truyền thống</h2><p>Bánh chưng, bánh tét, mứt Tết mang ý nghĩa sum họp và đủ đầy.</p></div>
-<div class="section"><h2>6. Văn hóa 3 miền</h2><p>Mỗi miền Bắc – Trung – Nam có phong tục Tết riêng nhưng cùng chung giá trị truyền thống.</p></div>
-<div class="section"><h2>7. Lịch nghỉ Tết 2026</h2><p>Tết Bính Ngọ 2026 dự kiến rơi vào giữa tháng 2 dương lịch.</p></div>
-<div class="section"><h2>8. Âm nhạc ngày Tết</h2><p>Những ca khúc xuân tạo không khí rộn ràng, ấm áp trong mỗi gia đình.</p></div>
+        <div class="section"><h2>1. Tết Nguyên Đán là gì?</h2><p>Tết là ngày lễ truyền thống lớn nhất của người Việt.</p></div>
+        <div class="section"><h2>2. Nguồn gốc ngày Tết</h2><p>Bắt nguồn từ nền văn minh lúa nước.</p></div>
+        <div class="section"><h2>3. Ý nghĩa ngày Tết</h2><p>Là dịp đoàn viên, tri ân tổ tiên.</p></div>
+        <div class="section"><h2>4. Phong tục ngày Tết</h2><p>Chúc Tết, mừng tuổi, gói bánh chưng.</p></div>
+        <div class="section"><h2>5. Món ăn truyền thống</h2><p>Bánh chưng, bánh tét, mứt Tết.</p></div>
+        <div class="section"><h2>6. Văn hóa 3 miền</h2><p>Mỗi miền có phong tục riêng.</p></div>
+        <div class="section"><h2>7. Lịch nghỉ Tết 2026</h2><p>Nghỉ nhiều ngày để sum họp.</p></div>
+        <div class="section"><h2>8. Âm nhạc ngày Tết</h2><p>Giai điệu xuân rộn ràng.</p></div>
 
-</div>
+    </div>
 </div>
 
 <footer>© 2026 – Website Tết Nguyên Đán Việt Nam</footer>
@@ -207,15 +202,64 @@ function enterSite(){
     content.style.display="block";
 }
 
+/* ĐẾM NGƯỢC */
 const tetDate = new Date("2026-02-17T00:00:00").getTime();
 setInterval(()=>{
-    const d = tetDate - new Date().getTime();
-    if(d<0) return;
-    days.innerText=Math.floor(d/(1000*60*60*24));
-    hours.innerText=Math.floor(d%(1000*60*60*24)/(1000*60*60));
-    minutes.innerText=Math.floor(d%(1000*60*60)/(1000*60));
-    seconds.innerText=Math.floor(d%(1000*60)/1000);
+    const now = new Date().getTime();
+    const d = tetDate - now;
+    if(d < 0) return;
+    days.innerText = Math.floor(d/(1000*60*60*24));
+    hours.innerText = Math.floor((d%(1000*60*60*24))/(1000*60*60));
+    minutes.innerText = Math.floor((d%(1000*60*60))/(1000*60));
+    seconds.innerText = Math.floor((d%(1000*60))/1000);
 },1000);
+
+/* HOA + LÌ XÌ */
+const icons=["🌸","🧧","🌼"];
+setInterval(()=>{
+    const el=document.createElement("div");
+    el.className="falling";
+    el.innerText=icons[Math.floor(Math.random()*icons.length)];
+    el.style.left=Math.random()*100+"vw";
+    el.style.fontSize=18+Math.random()*22+"px";
+    el.style.animationDuration=5+Math.random()*5+"s";
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),10000);
+},300);
+
+/* PHÁO HOA */
+const canvas=document.getElementById("fireworks");
+const ctx=canvas.getContext("2d");
+canvas.width=innerWidth;
+canvas.height=innerHeight;
+
+window.onresize=()=>{canvas.width=innerWidth;canvas.height=innerHeight;}
+
+let fireworks=[];
+function boom(){
+    fireworks.push({
+        x:Math.random()*canvas.width,
+        y:Math.random()*canvas.height/2,
+        r:2,
+        life:30,
+        c:`hsl(${Math.random()*360},100%,60%)`
+    });
+}
+function animate(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    fireworks.forEach((f,i)=>{
+        ctx.beginPath();
+        ctx.arc(f.x,f.y,f.r,0,Math.PI*2);
+        ctx.fillStyle=f.c;
+        ctx.fill();
+        f.r+=1.5;
+        f.life--;
+        if(f.life<=0)fireworks.splice(i,1);
+    });
+    requestAnimationFrame(animate);
+}
+setInterval(boom,700);
+animate();
 </script>
 
 </body>
