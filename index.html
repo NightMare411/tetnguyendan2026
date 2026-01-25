@@ -40,7 +40,6 @@
     color:#fff;
     text-align:center;
     padding:20px;
-    z-index:1;
 }
 
 #welcome h1{
@@ -64,6 +63,7 @@
 }
 
 .time-box span{
+    display:block;
     font-size:24px;
     font-weight:bold;
 }
@@ -98,58 +98,68 @@
     to{opacity:1; transform:translateY(0);}
 }
 
-.content-grid{
-    max-width:1000px;
-    margin:auto;
-}
-
 .section{
+    max-width:900px;
+    margin:20px auto;
     background:rgba(255,255,255,0.95);
     border-radius:15px;
     padding:25px;
-    margin-bottom:30px;
     border:4px solid #d62828;
     box-shadow:0 10px 25px rgba(0,0,0,0.25);
 }
 
 .section h2{
     color:#d62828;
-    margin-bottom:12px;
+    margin-bottom:10px;
 }
 
 .section p{
-    color:#333;
     line-height:1.7;
-    text-align:justify;
 }
 
-/* HOA & LÌ XÌ RƠI */
-.falling{
+/* HOA + LÌ XÌ RƠI */
+.fall{
     position:fixed;
-    top:-40px;
-    z-index:5;
-    pointer-events:none;
+    top:-50px;
+    font-size:24px;
     animation:fall linear infinite;
+    z-index:5;
 }
 
 @keyframes fall{
     to{
         transform:translateY(110vh) rotate(360deg);
+        opacity:0;
     }
 }
 
-/* PHÁO HOA */
-#fireworks{
+/* PHÁO HOA ĐẸP */
+.firework{
     position:fixed;
-    inset:0;
     pointer-events:none;
-    z-index:4;
+    z-index:6;
+}
+
+.spark{
+    position:absolute;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    animation:explode 1s ease-out forwards;
+}
+
+@keyframes explode{
+    from{transform:translate(0,0);opacity:1}
+    to{
+        transform:translate(var(--x),var(--y));
+        opacity:0
+    }
 }
 
 footer{
     text-align:center;
     color:#fff;
-    margin:30px 0;
+    margin:40px 0;
 }
 </style>
 </head>
@@ -162,17 +172,15 @@ footer{
 </video>
 <div class="overlay"></div>
 
-<canvas id="fireworks"></canvas>
-
 <!-- MÀN CHÀO -->
 <div id="welcome">
     <h1>🎊 Chào Mừng Tết Nguyên Đán 2026 🎊</h1>
 
     <div id="countdown">
-        <div class="time-box"><span id="days">0</span><small>Ngày</small></div>
-        <div class="time-box"><span id="hours">0</span><small>Giờ</small></div>
-        <div class="time-box"><span id="minutes">0</span><small>Phút</small></div>
-        <div class="time-box"><span id="seconds">0</span><small>Giây</small></div>
+        <div class="time-box"><span id="days">0</span>Ngày</div>
+        <div class="time-box"><span id="hours">0</span>Giờ</div>
+        <div class="time-box"><span id="minutes">0</span>Phút</div>
+        <div class="time-box"><span id="seconds">0</span>Giây</div>
     </div>
 
     <button class="btn" onclick="enterSite()">🎉 Chúc Mừng Năm Mới 🎉</button>
@@ -180,18 +188,16 @@ footer{
 
 <!-- TRANG 2 -->
 <div id="content">
-    <div class="content-grid">
 
-        <div class="section"><h2>1. Tết Nguyên Đán là gì?</h2><p>Tết là ngày lễ truyền thống lớn nhất của người Việt.</p></div>
-        <div class="section"><h2>2. Nguồn gốc ngày Tết</h2><p>Bắt nguồn từ nền văn minh lúa nước.</p></div>
-        <div class="section"><h2>3. Ý nghĩa ngày Tết</h2><p>Là dịp đoàn viên, tri ân tổ tiên.</p></div>
-        <div class="section"><h2>4. Phong tục ngày Tết</h2><p>Chúc Tết, mừng tuổi, gói bánh chưng.</p></div>
-        <div class="section"><h2>5. Món ăn truyền thống</h2><p>Bánh chưng, bánh tét, mứt Tết.</p></div>
-        <div class="section"><h2>6. Văn hóa 3 miền</h2><p>Mỗi miền có phong tục riêng.</p></div>
-        <div class="section"><h2>7. Lịch nghỉ Tết 2026</h2><p>Nghỉ nhiều ngày để sum họp.</p></div>
-        <div class="section"><h2>8. Âm nhạc ngày Tết</h2><p>Giai điệu xuân rộn ràng.</p></div>
+<div class="section"><h2>1. Tết Nguyên Đán là gì?</h2><p>Tết Nguyên Đán là ngày lễ quan trọng nhất của người Việt, đánh dấu năm mới âm lịch.</p></div>
+<div class="section"><h2>2. Nguồn gốc ngày Tết</h2><p>Tết gắn liền với nền văn minh lúa nước và tín ngưỡng dân gian.</p></div>
+<div class="section"><h2>3. Ý nghĩa Tết</h2><p>Là dịp đoàn viên, tri ân tổ tiên và khởi đầu mới.</p></div>
+<div class="section"><h2>4. Phong tục ngày Tết</h2><p>Cúng tổ tiên, chúc Tết, lì xì, xông đất.</p></div>
+<div class="section"><h2>5. Món ăn ngày Tết</h2><p>Bánh chưng, bánh tét, mứt Tết.</p></div>
+<div class="section"><h2>6. Văn hóa 3 miền</h2><p>Mỗi miền có nét Tết riêng nhưng cùng tinh thần sum họp.</p></div>
+<div class="section"><h2>7. Lịch nghỉ Tết 2026</h2><p>Dự kiến nghỉ 7–9 ngày theo quy định.</p></div>
+<div class="section"><h2>8. Âm nhạc ngày Tết</h2><p>Những ca khúc xuân mang không khí rộn ràng.</p></div>
 
-    </div>
 </div>
 
 <footer>© 2026 – Website Tết Nguyên Đán Việt Nam</footer>
@@ -203,63 +209,45 @@ function enterSite(){
 }
 
 /* ĐẾM NGƯỢC */
-const tetDate = new Date("2026-02-17T00:00:00").getTime();
+const tetDate=new Date("2026-02-17").getTime();
 setInterval(()=>{
-    const now = new Date().getTime();
-    const d = tetDate - now;
-    if(d < 0) return;
-    days.innerText = Math.floor(d/(1000*60*60*24));
-    hours.innerText = Math.floor((d%(1000*60*60*24))/(1000*60*60));
-    minutes.innerText = Math.floor((d%(1000*60*60))/(1000*60));
-    seconds.innerText = Math.floor((d%(1000*60))/1000);
+    const d=tetDate-new Date().getTime();
+    if(d<0)return;
+    days.innerText=Math.floor(d/86400000);
+    hours.innerText=Math.floor(d%86400000/3600000);
+    minutes.innerText=Math.floor(d%3600000/60000);
+    seconds.innerText=Math.floor(d%60000/1000);
 },1000);
 
 /* HOA + LÌ XÌ */
-const icons=["🌸","🧧","🌼"];
 setInterval(()=>{
-    const el=document.createElement("div");
-    el.className="falling";
-    el.innerText=icons[Math.floor(Math.random()*icons.length)];
-    el.style.left=Math.random()*100+"vw";
-    el.style.fontSize=18+Math.random()*22+"px";
-    el.style.animationDuration=5+Math.random()*5+"s";
-    document.body.appendChild(el);
-    setTimeout(()=>el.remove(),10000);
-},300);
+    const e=document.createElement("div");
+    e.className="fall";
+    e.innerText=Math.random()>0.5?"🌸":"🧧";
+    e.style.left=Math.random()*100+"vw";
+    e.style.animationDuration=4+Math.random()*4+"s";
+    document.body.appendChild(e);
+    setTimeout(()=>e.remove(),8000);
+},500);
 
-/* PHÁO HOA */
-const canvas=document.getElementById("fireworks");
-const ctx=canvas.getContext("2d");
-canvas.width=innerWidth;
-canvas.height=innerHeight;
-
-window.onresize=()=>{canvas.width=innerWidth;canvas.height=innerHeight;}
-
-let fireworks=[];
-function boom(){
-    fireworks.push({
-        x:Math.random()*canvas.width,
-        y:Math.random()*canvas.height/2,
-        r:2,
-        life:30,
-        c:`hsl(${Math.random()*360},100%,60%)`
-    });
+/* PHÁO HOA ĐẸP */
+function firework(){
+    const f=document.createElement("div");
+    f.className="firework";
+    f.style.left=Math.random()*100+"vw";
+    f.style.top=Math.random()*50+"vh";
+    document.body.appendChild(f);
+    for(let i=0;i<20;i++){
+        const s=document.createElement("div");
+        s.className="spark";
+        s.style.background=`hsl(${Math.random()*360},100%,60%)`;
+        s.style.setProperty("--x",(Math.random()*200-100)+"px");
+        s.style.setProperty("--y",(Math.random()*200-100)+"px");
+        f.appendChild(s);
+    }
+    setTimeout(()=>f.remove(),1200);
 }
-function animate(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    fireworks.forEach((f,i)=>{
-        ctx.beginPath();
-        ctx.arc(f.x,f.y,f.r,0,Math.PI*2);
-        ctx.fillStyle=f.c;
-        ctx.fill();
-        f.r+=1.5;
-        f.life--;
-        if(f.life<=0)fireworks.splice(i,1);
-    });
-    requestAnimationFrame(animate);
-}
-setInterval(boom,700);
-animate();
+setInterval(firework,1500);
 </script>
 
 </body>
