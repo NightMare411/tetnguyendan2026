@@ -371,5 +371,32 @@ function toggleMusic(){
 document.addEventListener("click",()=>music.play(),{once:true});
 </script>
 
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+let ytPlayer;
+
+function onYouTubeIframeAPIReady() {
+  ytPlayer = new YT.Player('yt-player', {
+    events: {
+      'onStateChange': onPlayerStateChange
+    }
+  });
+}
+
+function onPlayerStateChange(event) {
+  // Khi video PLAY
+  if (event.data === YT.PlayerState.PLAYING) {
+    if (!music.paused) music.pause();
+  }
+
+  // Khi video PAUSE hoặc END → bật lại nhạc nền (tuỳ bạn)
+  if (
+    event.data === YT.PlayerState.PAUSED ||
+    event.data === YT.PlayerState.ENDED
+  ) {
+    music.play();
+  }
+}
+</script>
 </body>
 </html>
