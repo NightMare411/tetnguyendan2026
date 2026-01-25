@@ -13,7 +13,6 @@
     font-family:"Segoe UI", sans-serif;
 }
 
-/* VIDEO NỀN */
 #bg-video{
     position:fixed;
     inset:0;
@@ -30,7 +29,6 @@
     z-index:-1;
 }
 
-/* MÀN CHÀO */
 #welcome{
     height:100vh;
     display:flex;
@@ -42,12 +40,6 @@
     padding:20px;
 }
 
-#welcome h1{
-    font-size:32px;
-    margin-bottom:15px;
-}
-
-/* ĐẾM NGƯỢC */
 #countdown{
     display:flex;
     gap:15px;
@@ -62,13 +54,6 @@
     min-width:70px;
 }
 
-.time-box span{
-    display:block;
-    font-size:24px;
-    font-weight:bold;
-}
-
-/* NÚT */
 .btn{
     background:linear-gradient(135deg,#ffd700,#ff3b3b);
     border:none;
@@ -77,25 +62,11 @@
     border-radius:50px;
     color:#fff;
     cursor:pointer;
-    animation:pulse 1.6s infinite;
 }
 
-@keyframes pulse{
-    0%{transform:scale(1)}
-    50%{transform:scale(1.05)}
-    100%{transform:scale(1)}
-}
-
-/* TRANG 2 */
 #content{
     display:none;
-    padding:50px 15px;
-    animation:fadeIn 1.2s ease forwards;
-}
-
-@keyframes fadeIn{
-    from{opacity:0; transform:translateY(40px);}
-    to{opacity:1; transform:translateY(0);}
+    padding:40px 15px;
 }
 
 .content-grid{
@@ -103,60 +74,41 @@
     margin:auto;
     display:flex;
     flex-direction:column;
-    gap:28px;
+    gap:35px;
 }
 
 .section{
-    background:rgba(255,255,255,0.96);
-    border-radius:15px;
-    padding:28px;
+    background:#fff;
+    border-radius:16px;
+    padding:26px;
     border:4px solid #d62828;
-    box-shadow:0 10px 25px rgba(0,0,0,0.25);
 }
 
-.section h2{
-    color:#d62828;
-    margin-bottom:14px;
+.news-image{
+    width:100%;
+    border-radius:12px;
+    margin-bottom:6px;
 }
 
-.section p{
+.image-caption{
+    font-size:13px;
+    color:#666;
+    margin-bottom:16px;
+    text-align:center;
+}
+
+.news-title{
+    font-size:26px;
+    font-weight:700;
+    color:#0a7a3d;
+    margin-bottom:18px;
+}
+
+.news-content p{
+    font-size:17px;
     line-height:1.9;
-    color:#333;
-    text-align:justify;
-    margin-bottom:12px;
-}
-
-/* NHẠC */
-#music-toggle{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    z-index:999;
-    background:#ffd700;
-    border:none;
-    padding:10px 16px;
-    border-radius:25px;
-    cursor:pointer;
-    font-weight:bold;
-}
-
-#volume-box{
-    position:fixed;
-    bottom:70px;
-    right:20px;
-    z-index:999;
-    background:rgba(0,0,0,0.55);
-    padding:10px 14px;
-    border-radius:25px;
-    display:flex;
-    align-items:center;
-    gap:8px;
-    color:#fff;
-}
-
-#volume-slider{
-    width:110px;
-    accent-color:#ffd700;
+    margin-bottom:15px;
+    color:#222;
 }
 
 footer{
@@ -164,162 +116,144 @@ footer{
     color:#fff;
     margin:40px 0;
 }
+
+#music-toggle{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#ffd700;
+    border:none;
+    padding:10px 16px;
+    border-radius:25px;
+    font-weight:bold;
+}
 </style>
 </head>
 
 <body>
 
-<!-- VIDEO -->
 <video id="bg-video" autoplay muted loop>
     <source src="tet-bg.mp4" type="video/mp4">
 </video>
 <div class="overlay"></div>
 
-<!-- AUDIO -->
 <audio id="bg-music" loop>
     <source src="tet-music.mp3" type="audio/mpeg">
 </audio>
 
-<!-- MÀN CHÀO -->
 <div id="welcome">
     <h1>🎊 Chào Mừng Tết Nguyên Đán 2026 🎊</h1>
 
     <div id="countdown">
-        <div class="time-box"><span id="days">0</span><small>Ngày</small></div>
-        <div class="time-box"><span id="hours">0</span><small>Giờ</small></div>
-        <div class="time-box"><span id="minutes">0</span><small>Phút</small></div>
-        <div class="time-box"><span id="seconds">0</span><small>Giây</small></div>
+        <div class="time-box"><span id="days">0</span><br>Ngày</div>
+        <div class="time-box"><span id="hours">0</span><br>Giờ</div>
+        <div class="time-box"><span id="minutes">0</span><br>Phút</div>
+        <div class="time-box"><span id="seconds">0</span><br>Giây</div>
     </div>
 
-    <button class="btn" onclick="enterSite()">🎉 Chúc Mừng Năm Mới 🎉</button>
+    <button class="btn" onclick="enterSite()">🎉 Vào Trang Chính 🎉</button>
 </div>
 
-<!-- TRANG 2 -->
 <div id="content">
 <div class="content-grid">
 
+<!-- 1 -->
 <div class="section">
-<h2>1. Tết Nguyên Đán là gì?</h2>
-<p>
-Tết Nguyên Đán là ngày lễ truyền thống lớn nhất và quan trọng nhất của người Việt Nam.
-Đây là thời điểm đánh dấu sự chuyển giao giữa năm cũ và năm mới theo âm lịch.
-Tết không chỉ là dịp nghỉ ngơi mà còn mang ý nghĩa tinh thần sâu sắc, thể hiện ước vọng
-về một năm mới an lành, may mắn và hạnh phúc.
-</p>
-<p>
-Trong tâm thức người Việt, Tết là thời khắc thiêng liêng khi đất trời giao hòa,
-con người tạm gác lại bộn bề cuộc sống để hướng về gia đình, cội nguồn và những giá trị truyền thống lâu đời.
-</p>
+<img src="flow1.png" class="news-image">
+<div class="image-caption">Không khí Tết cổ truyền Việt Nam</div>
+<div class="news-title">1. Tết Nguyên Đán là gì?</div>
+<div class="news-content">
+<p>Tết Nguyên Đán là ngày lễ truyền thống quan trọng và thiêng liêng nhất của người Việt Nam. Đây là thời điểm đánh dấu sự chuyển giao giữa năm cũ và năm mới theo lịch âm.</p>
+<p>Tết không chỉ đơn thuần là một ngày lễ mà còn là dịp để mọi người trở về sum họp cùng gia đình, tưởng nhớ tổ tiên và hướng đến những điều tốt đẹp trong tương lai.</p>
+<p>Trong tâm thức người Việt, Tết là sự khởi đầu mới, là hy vọng về một năm bình an, đủ đầy và may mắn.</p>
+</div>
 </div>
 
+<!-- 2 -->
 <div class="section">
-<h2>2. Nguồn gốc của ngày Tết</h2>
-<p>
-Tết Nguyên Đán có nguồn gốc từ nền văn minh lúa nước lâu đời của người Việt và các dân tộc Á Đông.
-Tết gắn liền với chu kỳ canh tác nông nghiệp, là thời điểm kết thúc vụ mùa cũ và chuẩn bị cho vụ mùa mới.
-</p>
-<p>
-Trải qua hàng nghìn năm lịch sử, Tết đã trở thành một phần không thể thiếu trong đời sống văn hóa dân tộc,
-được lưu truyền qua nhiều thế hệ với những phong tục, tập quán mang đậm bản sắc riêng.
-</p>
+<img src="flow2.png" class="news-image">
+<div class="image-caption">Nguồn gốc nông nghiệp của Tết</div>
+<div class="news-title">2. Nguồn gốc của ngày Tết</div>
+<div class="news-content">
+<p>Tết Nguyên Đán có nguồn gốc từ nền văn minh lúa nước, gắn liền với chu kỳ canh tác nông nghiệp của người Á Đông.</p>
+<p>Tết là thời điểm kết thúc một vụ mùa và chuẩn bị cho vụ mùa mới, thể hiện sự biết ơn trời đất, thần linh và tổ tiên đã phù hộ cho cuộc sống no đủ.</p>
+<p>Trải qua hàng nghìn năm lịch sử, Tết dần trở thành biểu tượng văn hóa không thể thiếu của dân tộc Việt Nam.</p>
+</div>
 </div>
 
+<!-- 3 -->
 <div class="section">
-<h2>3. Ý nghĩa của ngày Tết Nguyên Đán</h2>
-<p>
-Tết mang ý nghĩa đoàn viên, sum họp và gắn kết gia đình.
-Dù đi làm ăn xa đến đâu, mọi người đều mong muốn trở về nhà trong những ngày đầu năm mới.
-</p>
-<p>
-Bên cạnh đó, Tết còn là dịp để con người nhìn lại một năm đã qua,
-biết ơn tổ tiên, cha mẹ và gửi gắm những hy vọng, ước mơ cho tương lai phía trước.
-</p>
+<img src="flow3.png" class="news-image">
+<div class="image-caption">Giá trị tinh thần của ngày Tết</div>
+<div class="news-title">3. Ý nghĩa của ngày Tết Nguyên Đán</div>
+<div class="news-content">
+<p>Tết mang ý nghĩa đoàn viên, gắn kết các thế hệ trong gia đình. Dù đi đâu xa, ai cũng mong được trở về nhà trong dịp Tết.</p>
+<p>Đây cũng là dịp để mỗi người nhìn lại bản thân, bỏ qua những điều chưa trọn vẹn của năm cũ và hướng tới những mục tiêu mới.</p>
+<p>Tết là biểu tượng của lòng nhân ái, sự sẻ chia và tinh thần tương thân tương ái trong cộng đồng.</p>
+</div>
 </div>
 
+<!-- 4 -->
 <div class="section">
-<h2>4. Phong tục tập quán ngày Tết</h2>
-<p>
-Những phong tục truyền thống như dọn dẹp nhà cửa, cúng ông Công ông Táo,
-gói bánh chưng, chúc Tết, mừng tuổi đầu năm vẫn được gìn giữ cho đến ngày nay.
-</p>
-<p>
-Mỗi phong tục đều mang một ý nghĩa riêng, thể hiện mong muốn xua đuổi điều xấu,
-đón nhận điều lành và cầu mong một năm mới thuận lợi, bình an.
-</p>
+<img src="flow4.png" class="news-image">
+<div class="image-caption">Phong tục Tết truyền thống</div>
+<div class="news-title">4. Phong tục tập quán ngày Tết</div>
+<div class="news-content">
+<p>Người Việt có nhiều phong tục truyền thống trong ngày Tết như dọn dẹp nhà cửa, cúng ông Công ông Táo, gói bánh chưng, bánh tét.</p>
+<p>Vào ngày đầu năm, mọi người chúc Tết, mừng tuổi và gửi đến nhau những lời chúc tốt đẹp.</p>
+<p>Mỗi phong tục đều mang ý nghĩa cầu mong may mắn, bình an và thịnh vượng.</p>
+</div>
 </div>
 
+<!-- 5 -->
 <div class="section">
-<h2>5. Món ăn truyền thống ngày Tết</h2>
-<p>
-Ẩm thực ngày Tết vô cùng phong phú với bánh chưng, bánh tét, thịt kho, dưa hành,
-mứt Tết và nhiều món ăn truyền thống khác.
-</p>
-<p>
-Những món ăn này không chỉ ngon miệng mà còn chứa đựng giá trị văn hóa,
-thể hiện sự đủ đầy, sung túc và tình cảm gia đình.
-</p>
+<img src="flow5.png" class="news-image">
+<div class="image-caption">Ẩm thực ngày Tết</div>
+<div class="news-title">5. Món ăn truyền thống ngày Tết</div>
+<div class="news-content">
+<p>Ẩm thực ngày Tết rất phong phú và mang ý nghĩa riêng biệt.</p>
+<p>Bánh chưng, bánh tét tượng trưng cho đất trời, thể hiện lòng biết ơn tổ tiên.</p>
+<p>Mâm cơm ngày Tết không chỉ là bữa ăn mà còn là sự sum vầy và gắn kết gia đình.</p>
+</div>
 </div>
 
+<!-- 6 -->
 <div class="section">
-<h2>6. Trang phục ngày Tết</h2>
-<p>
-Trang phục ngày Tết thường mang màu sắc tươi sáng như đỏ, vàng,
-biểu trưng cho may mắn và hạnh phúc.
-</p>
-<p>
-Áo dài truyền thống là lựa chọn phổ biến,
-vừa thể hiện nét đẹp văn hóa dân tộc vừa tạo không khí trang trọng trong những ngày đầu năm.
-</p>
+<img src="flow6.png" class="news-image">
+<div class="image-caption">Văn hóa Tết ba miền</div>
+<div class="news-title">6. Văn hóa Tết của ba miền</div>
+<div class="news-content">
+<p>Mỗi miền Bắc, Trung, Nam đều có nét văn hóa Tết riêng nhưng đều hướng đến giá trị chung là đoàn viên.</p>
+<p>Sự đa dạng ấy tạo nên bản sắc phong phú cho Tết cổ truyền Việt Nam.</p>
+</div>
 </div>
 
+<!-- 7 -->
 <div class="section">
-<h2>7. Âm nhạc ngày Tết</h2>
-<p>
-Những bài hát xuân quen thuộc vang lên mỗi dịp Tết đến,
-tạo nên không khí rộn ràng, vui tươi và ấm áp.
-</p>
-<p>
-Âm nhạc ngày Tết giúp gắn kết mọi người,
-mang lại cảm xúc hân hoan và những kỷ niệm khó quên.
-</p>
+<img src="flow7.png" class="news-image">
+<div class="image-caption">Trang phục truyền thống</div>
+<div class="news-title">7. Trang phục ngày Tết</div>
+<div class="news-content">
+<p>Trang phục ngày Tết thường mang màu sắc tươi sáng như đỏ, vàng – biểu tượng của may mắn.</p>
+<p>Áo dài truyền thống được nhiều người lựa chọn để thể hiện nét đẹp văn hóa dân tộc.</p>
+</div>
 </div>
 
+<!-- 8 -->
 <div class="section">
-<h2>8. Lịch nghỉ Tết Nguyên Đán 2026</h2>
-<p>
-Tết Nguyên Đán Bính Ngọ 2026 dự kiến rơi vào ngày 17/02/2026 (mùng 1 Tết âm lịch).
-Nhiều cơ quan, doanh nghiệp và trường học sẽ có lịch nghỉ kéo dài để người dân
-có thời gian sum họp gia đình và nghỉ ngơi.
-</p>
-<p>
-Một số địa phương cho học sinh nghỉ Tết lên đến khoảng 14 ngày,
-tạo điều kiện để các em có thời gian vui xuân, đón Tết trọn vẹn bên gia đình.
-</p>
+<img src="flow8.jpg" class="news-image">
+<div class="image-caption">Âm nhạc mùa xuân</div>
+<div class="news-title">8. Âm nhạc ngày Tết</div>
+<div class="news-content">
+<p>Những ca khúc xuân quen thuộc góp phần tạo nên không khí rộn ràng ngày Tết.</p>
+<p>Âm nhạc mang lại cảm xúc ấm áp và gợi nhớ những kỷ niệm gia đình.</p>
 </div>
-
-<div class="section">
-<h2>9. Các thông tin khác về Tết</h2>
-<p>
-Bạn có thể tham khảo thêm những câu chuyện, hoạt động ý nghĩa về Tết qua các bài viết sau:
-</p>
-<p>
-– Lan tỏa xuân sẻ chia, những việc làm thiết thực vì Tết vẹn tròn.  
-<br>
-– Xóm trọ công nhân ấm áp với bữa cơm xuân đoàn kết, Tết nghĩa tình.  
-<br>
-– Lịch nghỉ Tết Nguyên Đán 2026 tại nhiều địa phương trên cả nước.
-</p>
 </div>
 
 </div>
 </div>
 
-<button id="music-toggle" onclick="toggleMusic()">🔈 Nhạc: TẮT</button>
-
-<div id="volume-box">
-🔊
-<input type="range" id="volume-slider" min="0" max="100" value="50" oninput="changeVolume(this.value)">
-</div>
+<button id="music-toggle" onclick="toggleMusic()">🔈 Nhạc</button>
 
 <footer>© 2026 – Website Tết Nguyên Đán Việt Nam</footer>
 
@@ -329,7 +263,6 @@ function enterSite(){
     document.getElementById("content").style.display="block";
 }
 
-/* COUNTDOWN */
 const tetDate = new Date("2026-02-17T00:00:00").getTime();
 setInterval(()=>{
     const now = new Date().getTime();
@@ -341,36 +274,12 @@ setInterval(()=>{
     seconds.innerText = Math.floor((d%(1000*60))/1000);
 },1000);
 
-/* NHẠC */
-const music = document.getElementById("bg-music");
-const btn = document.getElementById("music-toggle");
-music.volume = 0.5;
-let started = false;
-
+const music=document.getElementById("bg-music");
 function toggleMusic(){
-    if(music.paused){
-        music.play();
-        btn.innerText="🔊 Nhạc: BẬT";
-    }else{
-        music.pause();
-        btn.innerText="🔈 Nhạc: TẮT";
-    }
+    if(music.paused) music.play();
+    else music.pause();
 }
-
-function changeVolume(v){
-    music.volume = v/100;
-}
-
-function autoPlay(){
-    if(!started){
-        music.play().then(()=>{
-            btn.innerText="🔊 Nhạc: BẬT";
-            started=true;
-        }).catch(()=>{});
-    }
-}
-document.addEventListener("click", autoPlay);
-document.addEventListener("touchstart", autoPlay);
+document.addEventListener("click",()=>music.play(),{once:true});
 </script>
 
 </body>
