@@ -12,7 +12,6 @@
     box-sizing:border-box;
     font-family:"Segoe UI", sans-serif;
 }
-
 #bg-video{
     position:fixed;
     inset:0;
@@ -21,14 +20,12 @@
     object-fit:cover;
     z-index:-2;
 }
-
 .overlay{
     position:fixed;
     inset:0;
     background:rgba(0,0,0,0.45);
     z-index:-1;
 }
-
 #welcome{
     height:100vh;
     display:flex;
@@ -39,13 +36,11 @@
     text-align:center;
     padding:20px;
 }
-
 #countdown{
     display:flex;
     gap:15px;
     margin:20px 0;
 }
-
 .time-box{
     background:rgba(255,215,0,0.95);
     color:#b30000;
@@ -53,7 +48,6 @@
     border-radius:12px;
     min-width:70px;
 }
-
 .btn{
     background:linear-gradient(135deg,#ffd700,#ff3b3b);
     border:none;
@@ -63,12 +57,10 @@
     color:#fff;
     cursor:pointer;
 }
-
 #content{
     display:none;
     padding:40px 15px;
 }
-
 .content-grid{
     max-width:900px;
     margin:auto;
@@ -76,47 +68,39 @@
     flex-direction:column;
     gap:35px;
 }
-
 .section{
     background:#fff;
     border-radius:16px;
     padding:26px;
     border:4px solid #d62828;
 }
-
 .news-image{
     width:100%;
     border-radius:12px;
-    margin-bottom:6px;
 }
-
 .image-caption{
     font-size:13px;
     color:#666;
     margin-bottom:16px;
     text-align:center;
 }
-
 .news-title{
     font-size:26px;
     font-weight:700;
     color:#0a7a3d;
     margin-bottom:18px;
 }
-
 .news-content p{
     font-size:17px;
     line-height:1.9;
     margin-bottom:15px;
     color:#222;
 }
-
 footer{
     text-align:center;
     color:#fff;
     margin:40px 0;
 }
-
 #music-toggle{
     position:fixed;
     bottom:20px;
@@ -143,213 +127,68 @@ footer{
 
 <div id="welcome">
     <h1>🎊 Chào Mừng Tết Nguyên Đán 2026 🎊</h1>
-
     <div id="countdown">
         <div class="time-box"><span id="days">0</span><br>Ngày</div>
         <div class="time-box"><span id="hours">0</span><br>Giờ</div>
         <div class="time-box"><span id="minutes">0</span><br>Phút</div>
         <div class="time-box"><span id="seconds">0</span><br>Giây</div>
     </div>
-
     <button class="btn" onclick="enterSite()">🎉 Vào Trang Chính 🎉</button>
 </div>
 
 <div id="content">
 <div class="content-grid">
 
-<!-- 1 -->
-<div class="section">
-<img src="flow1.png" class="news-image">
-<div class="image-caption">Không khí Tết cổ truyền Việt Nam</div>
-<div class="news-title">1. Tết Nguyên Đán là gì?</div>
-<div class="news-content">
-<p>Tết Nguyên Đán là ngày lễ truyền thống quan trọng và thiêng liêng nhất của người Việt Nam. Đây là thời điểm đánh dấu sự chuyển giao giữa năm cũ và năm mới theo lịch âm.</p>
-<p>Tết không chỉ đơn thuần là một ngày lễ mà còn là dịp để mọi người trở về sum họp cùng gia đình, tưởng nhớ tổ tiên và hướng đến những điều tốt đẹp trong tương lai.</p>
-<p>Trong tâm thức người Việt, Tết là sự khởi đầu mới, là hy vọng về một năm bình an, đủ đầy và may mắn.</p>
-</div>
-</div>
-
-<!-- 2 -->
-<div class="section">
-<img src="flow2.png" class="news-image">
-<div class="image-caption">Nguồn gốc nông nghiệp của Tết</div>
-<div class="news-title">2. Nguồn gốc của ngày Tết</div>
-<div class="news-content">
-<p>Tết Nguyên Đán có nguồn gốc từ nền văn minh lúa nước, gắn liền với chu kỳ canh tác nông nghiệp của người Á Đông.</p>
-<p>Tết là thời điểm kết thúc một vụ mùa và chuẩn bị cho vụ mùa mới, thể hiện sự biết ơn trời đất, thần linh và tổ tiên đã phù hộ cho cuộc sống no đủ.</p>
-<p>Trải qua hàng nghìn năm lịch sử, Tết dần trở thành biểu tượng văn hóa không thể thiếu của dân tộc Việt Nam.</p>
-</div>
-</div>
-
-<!-- 3 -->
-<div class="section">
-<img src="flow3.png" class="news-image">
-<div class="image-caption">Giá trị tinh thần của ngày Tết</div>
-<div class="news-title">3. Ý nghĩa của ngày Tết Nguyên Đán</div>
-<div class="news-content">
-<p>Tết mang ý nghĩa đoàn viên, gắn kết các thế hệ trong gia đình. Dù đi đâu xa, ai cũng mong được trở về nhà trong dịp Tết.</p>
-<p>Đây cũng là dịp để mỗi người nhìn lại bản thân, bỏ qua những điều chưa trọn vẹn của năm cũ và hướng tới những mục tiêu mới.</p>
-<p>Tết là biểu tượng của lòng nhân ái, sự sẻ chia và tinh thần tương thân tương ái trong cộng đồng.</p>
-</div>
-</div>
-
-<!-- 4 -->
-<div class="section">
-<img src="flow4.png" class="news-image">
-<div class="image-caption">Phong tục Tết truyền thống</div>
-<div class="news-title">4. Phong tục tập quán ngày Tết</div>
-<div class="news-content">
-<p>Người Việt có nhiều phong tục truyền thống trong ngày Tết như dọn dẹp nhà cửa, cúng ông Công ông Táo, gói bánh chưng, bánh tét.</p>
-<p>Vào ngày đầu năm, mọi người chúc Tết, mừng tuổi và gửi đến nhau những lời chúc tốt đẹp.</p>
-<p>Mỗi phong tục đều mang ý nghĩa cầu mong may mắn, bình an và thịnh vượng.</p>
-</div>
-</div>
-
-<!-- 5 -->
 <div class="section">
 <img src="amthuc.png" class="news-image">
 <div class="image-caption">Ẩm thực ngày Tết</div>
 <div class="news-title">5. Món ăn truyền thống ngày Tết</div>
 <div class="news-content">
-<p>Ẩm thực ngày Tết rất phong phú và mang ý nghĩa riêng biệt.</p>
-<p>Bánh chưng, bánh tét tượng trưng cho đất trời, thể hiện lòng biết ơn tổ tiên.</p>
-<p>Mâm cơm ngày Tết không chỉ là bữa ăn mà còn là sự sum vầy và gắn kết gia đình.</p>
 
 <div style="margin-top:20px; position:relative; padding-bottom:56.25%; height:0;">
-<iframe 
-    id="youtube-player"
-    src="https://youtu.be/2fT9tS2MBCc?si=sOItqPIYpV7LTX1j"
+<iframe
+    class="yt-video"
+    src="https://www.youtube.com/embed/2fT9tS2MBCc?enablejsapi=1"
     frameborder="0"
     allow="autoplay; encrypted-media"
     allowfullscreen
     style="position:absolute; top:0; left:0; width:100%; height:100%;">
 </iframe>
 </div>
-</div>
 
-</div>
-
-<!-- 6 -->
-<div class="section">
-<img src="flow6.png" class="news-image">
-<div class="image-caption">Văn hóa Tết ba miền</div>
-<div class="news-title">6. Văn hóa Tết của ba miền</div>
-<div class="news-content">
-<p>Mỗi miền Bắc, Trung, Nam đều có nét văn hóa Tết riêng nhưng đều hướng đến giá trị chung là đoàn viên.</p>
-<p>Sự đa dạng ấy tạo nên bản sắc phong phú cho Tết cổ truyền Việt Nam.</p>
 </div>
 </div>
 
-<!-- 7 -->
-<div class="section">
-<img src="aodai.jpg" class="news-image">
-<div class="image-caption">Trang phục truyền thống</div>
-<div class="news-title">7. Trang phục ngày Tết</div>
-<div class="news-content">
-<p>Trang phục ngày Tết thường mang màu sắc tươi sáng như đỏ, vàng – biểu tượng của may mắn.</p>
-<p>Áo dài truyền thống được nhiều người lựa chọn để thể hiện nét đẹp văn hóa dân tộc.</p>
-
-<div style="margin-top:20px; position:relative; padding-bottom:56.25%; height:0;">
-<iframe 
-    id="youtube-player"
-    src="https://www.youtube.com/embed/FeKWAiHUqgQ"
-    frameborder="0"
-    allow="autoplay; encrypted-media"
-    allowfullscreen
-    style="position:absolute; top:0; left:0; width:100%; height:100%;">
-</iframe>
-</div>
-</div>
-</div>
-
-<!-- 8 -->
 <div class="section">
 <img src="flow8.jpg" class="news-image">
 <div class="image-caption">Âm nhạc mùa xuân</div>
 <div class="news-title">8. Âm nhạc ngày Tết</div>
 <div class="news-content">
-<p>Những ca khúc xuân quen thuộc góp phần tạo nên không khí rộn ràng ngày Tết.</p>
-<p>Âm nhạc mang lại cảm xúc ấm áp và gợi nhớ những kỷ niệm gia đình.</p>
 
-<div style="margin-top:20px; position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:12px;">
-    <iframe 
-        src="https://www.youtube.com/embed/gOtfJ151ue4"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-        style="position:absolute; top:0; left:0; width:100%; height:100%;">
-    </iframe>
-</div>
-</div>
+<div style="margin-top:20px; position:relative; padding-bottom:56.25%; height:0;">
+<iframe
+    class="yt-video"
+    src="https://www.youtube.com/embed/gOtfJ151ue4?enablejsapi=1"
+    frameborder="0"
+    allow="accelerometer; autoplay; encrypted-media"
+    allowfullscreen
+    style="position:absolute; top:0; left:0; width:100%; height:100%;">
+</iframe>
 </div>
 
-<!-- 9 -->
-<div class="section">
-    <img src="lichnghitet.png" class="news-image" style="width:100%;object-fit:cover;">
-    <div class="image-caption">Lịch nghỉ Tết Nguyên Đán 2026</div>
-    <div class="news-title">9. Lịch nghỉ Tết Nguyên Đán 2026</div>
-    <div class="news-content">
-        <p>
-            Lịch nghỉ Tết Nguyên Đán 2026 được nhiều phụ huynh, học sinh và người lao động quan tâm
-            vì đây là khoảng thời gian nghỉ dài nhất trong năm.
-        </p>
-        <p>
-            Theo các thông tin được công bố, nhiều địa phương cho học sinh nghỉ Tết lên tới
-            <strong>14 ngày</strong>, giúp các em có thời gian sum họp gia đình, nghỉ ngơi và
-            tham gia các hoạt động truyền thống.
-        </p>
-        <p>
-            Đối với người lao động, lịch nghỉ Tết sẽ được sắp xếp linh hoạt tùy theo từng cơ quan,
-            doanh nghiệp, nhưng nhìn chung đều đảm bảo thời gian nghỉ đủ dài để đón Tết trọn vẹn.
-        </p>
-    </div>
 </div>
-
-<!-- 10 -->
-<div class="section">
-    <div class="news-title">10. Các thông tin khác về Tết Nguyên Đán</div>
-    <div class="news-content">
-        <p>
-            Bên cạnh những giá trị truyền thống, Tết Nguyên Đán còn gắn liền với nhiều hoạt động
-            xã hội ý nghĩa, lan tỏa tinh thần sẻ chia và gắn kết cộng đồng.
-        </p>
-
-        <p>
-            🔗 <a href="https://tuoitre.vn/lan-toa-xuan-se-chia-bang-nhung-viec-lam-thiet-thuc-vi-tet-ven-tron-20260125120410705.htm" target="_blank">
-            Lan tỏa Xuân sẻ chia bằng những việc làm thiết thực
-            </a>
-        </p>
-
-        <p>
-            🔗 <a href="https://baomoi.com/xom-tro-cong-nhan-am-ap-voi-bua-com-xuan-doan-ket-tet-nghia-tinh-c54338548.epi" target="_blank">
-            Xóm trọ công nhân ấm áp với bữa cơm xuân đoàn kết
-            </a>
-        </p>
-
-        <p>
-            🔗 <a href="https://www.google.com/amp/s/amp.laodong.vn/giao-duc/lich-nghi-tet-nguyen-dan-2026-nhieu-dia-phuong-cho-hoc-sinh-nghi-14-ngay-1643424.ldo" target="_blank">
-            Lịch nghỉ Tết Nguyên Đán 2026 của học sinh nhiều địa phương
-            </a>
-        </p>
-
-        <p>
-            Những thông tin này cho thấy Tết không chỉ là ngày lễ truyền thống mà còn là dịp
-            để lan tỏa tình người, sự quan tâm và tinh thần cộng đồng trong xã hội hiện đại.
-        </p>
-    </div>
 </div>
 
 </div>
 </div>
 
 <button id="music-toggle" onclick="toggleMusic()">🔈 Nhạc</button>
-
 <footer>© 2026 – Website Tết Nguyên Đán Việt Nam</footer>
 
 <script>
 function enterSite(){
-    document.getElementById("welcome").style.display="none";
-    document.getElementById("content").style.display="block";
+    welcome.style.display="none";
+    content.style.display="block";
 }
 
 const tetDate = new Date("2026-02-17T00:00:00").getTime();
@@ -373,30 +212,31 @@ document.addEventListener("click",()=>music.play(),{once:true});
 
 <script src="https://www.youtube.com/iframe_api"></script>
 <script>
-let ytPlayer;
+const bgMusic = document.getElementById("bg-music");
+let ytPlayers = [];
 
 function onYouTubeIframeAPIReady() {
-  ytPlayer = new YT.Player('yt-player', {
-    events: {
-      'onStateChange': onPlayerStateChange
-    }
-  });
+    document.querySelectorAll(".yt-video").forEach((iframe, index) => {
+        ytPlayers[index] = new YT.Player(iframe, {
+            events: {
+                onStateChange: onYTStateChange
+            }
+        });
+    });
 }
 
-function onPlayerStateChange(event) {
-  // Khi video PLAY
-  if (event.data === YT.PlayerState.PLAYING) {
-    if (!music.paused) music.pause();
-  }
-
-  // Khi video PAUSE hoặc END → bật lại nhạc nền (tuỳ bạn)
-  if (
-    event.data === YT.PlayerState.PAUSED ||
-    event.data === YT.PlayerState.ENDED
-  ) {
-    music.play();
-  }
+function onYTStateChange(event) {
+    if (event.data === YT.PlayerState.PLAYING) {
+        if (!bgMusic.paused) bgMusic.pause();
+    }
+    if (
+        event.data === YT.PlayerState.PAUSED ||
+        event.data === YT.PlayerState.ENDED
+    ) {
+        bgMusic.play();
+    }
 }
 </script>
+
 </body>
 </html>
