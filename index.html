@@ -77,6 +77,7 @@
 .news-image{
     width:100%;
     border-radius:12px;
+    margin-bottom:6px;
 }
 .image-caption{
     font-size:13px;
@@ -139,10 +140,59 @@ footer{
 <div id="content">
 <div class="content-grid">
 
+<!-- 1 -->
+<div class="section">
+<img src="flow1.png" class="news-image">
+<div class="image-caption">Không khí Tết cổ truyền Việt Nam</div>
+<div class="news-title">1. Tết Nguyên Đán là gì?</div>
+<div class="news-content">
+<p>Tết Nguyên Đán là ngày lễ truyền thống quan trọng và thiêng liêng nhất của người Việt Nam.</p>
+<p>Tết không chỉ đơn thuần là một ngày lễ mà còn là dịp để mọi người trở về sum họp cùng gia đình.</p>
+<p>Tết là sự khởi đầu mới, là hy vọng về một năm bình an và may mắn.</p>
+</div>
+</div>
+
+<!-- 2 -->
+<div class="section">
+<img src="flow2.png" class="news-image">
+<div class="image-caption">Nguồn gốc nông nghiệp của Tết</div>
+<div class="news-title">2. Nguồn gốc của ngày Tết</div>
+<div class="news-content">
+<p>Tết Nguyên Đán gắn liền với nền văn minh lúa nước.</p>
+<p>Đây là thời điểm kết thúc vụ mùa và chuẩn bị cho vụ mùa mới.</p>
+<p>Tết trở thành biểu tượng văn hóa của dân tộc Việt Nam.</p>
+</div>
+</div>
+
+<!-- 3 -->
+<div class="section">
+<img src="flow3.png" class="news-image">
+<div class="image-caption">Giá trị tinh thần của ngày Tết</div>
+<div class="news-title">3. Ý nghĩa của ngày Tết</div>
+<div class="news-content">
+<p>Tết mang ý nghĩa đoàn viên.</p>
+<p>Là dịp nhìn lại bản thân.</p>
+<p>Thể hiện tinh thần sẻ chia.</p>
+</div>
+</div>
+
+<!-- 4 -->
+<div class="section">
+<img src="flow4.png" class="news-image">
+<div class="image-caption">Phong tục Tết truyền thống</div>
+<div class="news-title">4. Phong tục ngày Tết</div>
+<div class="news-content">
+<p>Dọn dẹp nhà cửa, gói bánh chưng.</p>
+<p>Chúc Tết, mừng tuổi.</p>
+<p>Cầu mong bình an.</p>
+</div>
+</div>
+
+<!-- 5 -->
 <div class="section">
 <img src="amthuc.png" class="news-image">
 <div class="image-caption">Ẩm thực ngày Tết</div>
-<div class="news-title">5. Món ăn truyền thống ngày Tết</div>
+<div class="news-title">5. Món ăn truyền thống</div>
 <div class="news-content">
 
 <div style="margin-top:20px; position:relative; padding-bottom:56.25%; height:0;">
@@ -159,6 +209,39 @@ footer{
 </div>
 </div>
 
+<!-- 6 -->
+<div class="section">
+<img src="flow6.png" class="news-image">
+<div class="image-caption">Văn hóa Tết ba miền</div>
+<div class="news-title">6. Văn hóa ba miền</div>
+<div class="news-content">
+<p>Mỗi miền có nét riêng.</p>
+<p>Tạo nên bản sắc Việt.</p>
+</div>
+</div>
+
+<!-- 7 -->
+<div class="section">
+<img src="aodai.jpg" class="news-image">
+<div class="image-caption">Trang phục truyền thống</div>
+<div class="news-title">7. Trang phục ngày Tết</div>
+<div class="news-content">
+
+<div style="margin-top:20px; position:relative; padding-bottom:56.25%; height:0;">
+<iframe
+    class="yt-video"
+    src="https://www.youtube.com/embed/FeKWAiHUqgQ?enablejsapi=1"
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen
+    style="position:absolute; top:0; left:0; width:100%; height:100%;">
+</iframe>
+</div>
+
+</div>
+</div>
+
+<!-- 8 -->
 <div class="section">
 <img src="flow8.jpg" class="news-image">
 <div class="image-caption">Âm nhạc mùa xuân</div>
@@ -170,7 +253,7 @@ footer{
     class="yt-video"
     src="https://www.youtube.com/embed/gOtfJ151ue4?enablejsapi=1"
     frameborder="0"
-    allow="accelerometer; autoplay; encrypted-media"
+    allow="autoplay; encrypted-media"
     allowfullscreen
     style="position:absolute; top:0; left:0; width:100%; height:100%;">
 </iframe>
@@ -218,23 +301,17 @@ let ytPlayers = [];
 function onYouTubeIframeAPIReady() {
     document.querySelectorAll(".yt-video").forEach((iframe, index) => {
         ytPlayers[index] = new YT.Player(iframe, {
-            events: {
-                onStateChange: onYTStateChange
-            }
+            events: { onStateChange: onYTStateChange }
         });
     });
 }
 
 function onYTStateChange(event) {
-    if (event.data === YT.PlayerState.PLAYING) {
-        if (!bgMusic.paused) bgMusic.pause();
-    }
+    if (event.data === YT.PlayerState.PLAYING) bgMusic.pause();
     if (
         event.data === YT.PlayerState.PAUSED ||
         event.data === YT.PlayerState.ENDED
-    ) {
-        bgMusic.play();
-    }
+    ) bgMusic.play();
 }
 </script>
 
